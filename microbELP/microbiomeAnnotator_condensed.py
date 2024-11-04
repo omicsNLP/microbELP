@@ -559,6 +559,62 @@ class Annotator:
                                         if ', associate' in data['documents'][z]['passages'][other[i][1]]['text'][data['documents'][z]['passages'][other[i][1]]['annotations'][other[i][2]]['locations']['offset'] - data['documents'][z]['passages'][other[i][1]]['offset']:data['documents'][z]['passages'][other[i][1]]['annotations'][other[i][2]]['locations']['offset'] - data['documents'][z]['passages'][other[i][1]]['offset'] + data['documents'][z]['passages'][other[i][1]]['annotations'][other[i][2]]['locations']['length']]:
                                             data['documents'][z]['passages'][other[i][1]]['annotations'][other[i][2]]['locations']['length'] = len(data['documents'][z]['passages'][other[i][1]]['text'][data['documents'][z]['passages'][other[i][1]]['annotations'][other[i][2]]['locations']['offset'] - data['documents'][z]['passages'][other[i][1]]['offset']:data['documents'][z]['passages'][other[i][1]]['annotations'][other[i][2]]['locations']['offset'] - data['documents'][z]['passages'][other[i][1]]['offset'] + data['documents'][z]['passages'][other[i][1]]['annotations'][other[i][2]]['locations']['length']].split(', associate')[0])
                                             data['documents'][z]['passages'][other[i][1]]['annotations'][other[i][2]]['text'] = data['documents'][z]['passages'][other[i][1]]['text'][data['documents'][z]['passages'][other[i][1]]['annotations'][other[i][2]]['locations']['offset'] - data['documents'][z]['passages'][other[i][1]]['offset']:data['documents'][z]['passages'][other[i][1]]['annotations'][other[i][2]]['locations']['offset'] - data['documents'][z]['passages'][other[i][1]]['offset'] + data['documents'][z]['passages'][other[i][1]]['annotations'][other[i][2]]['locations']['length']].split(', associate')[0]
+                                    for i in range(len(data['documents'][z]['passages'])):
+                                        text = data['documents'][z]['passages'][i]['text']
+                                        current_offset = data['documents'][z]['passages'][i]['offset']
+                                        for j in range(len(data['documents'][z]['passages'][i]['annotations'])):
+                                            current_text = text[data['documents'][z]['passages'][i]['annotations'][j]['locations']['offset']-current_offset:]
+                                            current_text = current_text.split()
+                                            if len(data['documents'][z]['passages'][i]['annotations'][j]['text'].split()) < len(current_text):
+                                                if 'sp' == current_text[len(data['documents'][z]['passages'][i]['annotations'][j]['text'].split())]:
+                                                    if len(data['documents'][z]['passages'][i]['annotations'][j]['text'].split()) == 1:
+                                                        data['documents'][z]['passages'][i]['annotations'][j]['text'] = ' '.join(current_text[:len(data['documents'][z]['passages'][i]['annotations'][j]['text'].split())+1])
+                                                        data['documents'][z]['passages'][i]['annotations'][j]['locations']['length'] = len(data['documents'][z]['passages'][i]['annotations'][j]['text'])
+                                                    else:
+                                                        if current_text[:len(data['documents'][z]['passages'][i]['annotations'][j]['text'].split())+1][-2] == data['documents'][z]['passages'][i]['annotations'][j]['text'].split()[-1]:
+                                                            data['documents'][z]['passages'][i]['annotations'][j]['text'] = ' '.join(current_text[:len(data['documents'][z]['passages'][i]['annotations'][j]['text'].split())+1])
+                                                            data['documents'][z]['passages'][i]['annotations'][j]['locations']['length'] = len(data['documents'][z]['passages'][i]['annotations'][j]['text'])
+                                                        else:
+                                                            pass
+                                                if 'sp.' == current_text[len(data['documents'][z]['passages'][i]['annotations'][j]['text'].split())]:
+                                                    if len(data['documents'][z]['passages'][i]['annotations'][j]['text'].split()) == 1:
+                                                        data['documents'][z]['passages'][i]['annotations'][j]['text'] = ' '.join(current_text[:len(data['documents'][z]['passages'][i]['annotations'][j]['text'].split())+1])
+                                                        data['documents'][z]['passages'][i]['annotations'][j]['locations']['length'] = len(data['documents'][z]['passages'][i]['annotations'][j]['text'])
+                                                    else:
+                                                        if current_text[:len(data['documents'][z]['passages'][i]['annotations'][j]['text'].split())+1][-2] == data['documents'][z]['passages'][i]['annotations'][j]['text'].split()[-1]:
+                                                            data['documents'][z]['passages'][i]['annotations'][j]['text'] = ' '.join(current_text[:len(data['documents'][z]['passages'][i]['annotations'][j]['text'].split())+1])
+                                                            data['documents'][z]['passages'][i]['annotations'][j]['locations']['length'] = len(data['documents'][z]['passages'][i]['annotations'][j]['text'])
+                                                        else:
+                                                            pass
+                                                if 'spp' == current_text[len(data['documents'][z]['passages'][i]['annotations'][j]['text'].split())]:
+                                                    if len(data['documents'][z]['passages'][i]['annotations'][j]['text'].split()) == 1:
+                                                        data['documents'][z]['passages'][i]['annotations'][j]['text'] = ' '.join(current_text[:len(data['documents'][z]['passages'][i]['annotations'][j]['text'].split())+1])
+                                                        data['documents'][z]['passages'][i]['annotations'][j]['locations']['length'] = len(data['documents'][z]['passages'][i]['annotations'][j]['text'])
+                                                    else:
+                                                        if current_text[:len(data['documents'][z]['passages'][i]['annotations'][j]['text'].split())+1][-2] == data['documents'][z]['passages'][i]['annotations'][j]['text'].split()[-1]:
+                                                            data['documents'][z]['passages'][i]['annotations'][j]['text'] = ' '.join(current_text[:len(data['documents'][z]['passages'][i]['annotations'][j]['text'].split())+1])
+                                                            data['documents'][z]['passages'][i]['annotations'][j]['locations']['length'] = len(data['documents'][z]['passages'][i]['annotations'][j]['text'])
+                                                        else:
+                                                            pass
+                                                if 'spp.' == current_text[len(data['documents'][z]['passages'][i]['annotations'][j]['text'].split())]:
+                                                    if len(data['documents'][z]['passages'][i]['annotations'][j]['text'].split()) == 1:
+                                                        data['documents'][z]['passages'][i]['annotations'][j]['text'] = ' '.join(current_text[:len(data['documents'][z]['passages'][i]['annotations'][j]['text'].split())+1])
+                                                        data['documents'][z]['passages'][i]['annotations'][j]['locations']['length'] = len(data['documents'][z]['passages'][i]['annotations'][j]['text'])
+                                                    else:
+                                                        if current_text[:len(data['documents'][z]['passages'][i]['annotations'][j]['text'].split())+1][-2] == data['documents'][z]['passages'][i]['annotations'][j]['text'].split()[-1]:
+                                                            data['documents'][z]['passages'][i]['annotations'][j]['text'] = ' '.join(current_text[:len(data['documents'][z]['passages'][i]['annotations'][j]['text'].split())+1])
+                                                            data['documents'][z]['passages'][i]['annotations'][j]['locations']['length'] = len(data['documents'][z]['passages'][i]['annotations'][j]['text'])
+                                                        else:
+                                                            pass
+                                    for i in range(len(data['documents'][z]['passages'])):
+                                        for j in range(len(data['documents'][z]['passages'][i]['annotations'])):
+                                            if data['documents'][z]['passages'][i]['annotations'][j]['text'][-6:].lower() == ' genus':
+                                                data['documents'][z]['passages'][i]['annotations'][j]['text'] = data['documents'][z]['passages'][i]['annotations'][j]['text'][:-6]
+                                                data['documents'][z]['passages'][i]['annotations'][j]['locations']['length'] = len(data['documents'][z]['passages'][i]['annotations'][j]['text'])
+                                            if data['documents'][z]['passages'][i]['annotations'][j]['text'][:6].lower() == 'genus ':
+                                                data['documents'][z]['passages'][i]['annotations'][j]['text'] = data['documents'][z]['passages'][i]['annotations'][j]['text'][6:]
+                                                data['documents'][z]['passages'][i]['annotations'][j]['locations']['length'] = len(data['documents'][z]['passages'][i]['annotations'][j]['text'])
+                                                data['documents'][z]['passages'][i]['annotations'][j]['locations']['offset'] = data['documents'][z]['passages'][i]['annotations'][j]['locations']['offset'] + 6
 #---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
                                
                                 for i in data: 
