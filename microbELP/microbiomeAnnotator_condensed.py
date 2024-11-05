@@ -39,10 +39,23 @@ class Annotator:
             strains = {key:value for key, value in cncounts.items() if value > 1}
             CleanNames =list(dict.fromkeys(CleanNames))
             all_files = os.listdir(self.input_directory) 
-            PMC_files=[]  
+            to_do=[]  
             for n in all_files:   
-                if  n.endswith('bioc.json'):  
-                    PMC_files.append(n)
+                if  n.endswith('_bioc.json'):  
+                    to_do.append(n)
+            for n in range(len(to_do)):
+                to_do[n] = [to_do[n], to_do[n].split('/')[-1].split('_bioc.json')[0]]
+            done = os.listdir(self.output_directory + folder) 
+            for n in range(len(done)):   
+                if  done[n].endswith('_bioc.json'):  
+                    done[n] = done[n].split('/')[-1].split('_bioc.json')[0]
+                else:
+                    done[n] = ''
+            PMC_files = []
+            for n in range(len(to_do)):
+                if to_do[n][1] not in done:
+                    PMC_files.append(to_do[n][0])
+        
 
 #For each PMC file, the data is loaded as a json and my_list is made. Text is under documents --> passages --> para--> annotations and textsection --> word     
             for i in range(len(PMC_files)):
