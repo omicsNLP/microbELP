@@ -1,3 +1,5 @@
+[![DOI:10.1101/2021.01.08.425887](http://img.shields.io/badge/DOI-10.1101/2025.08.29.671515-BE2536.svg)](https://doi.org/10.1101/2025.08.29.671515)
+
 # microbELP 
 **MicrobELP** is a dictionary-based pipeline using the NCBI taxonomy to automatically label entities in BioC-formatted JSON files (from [Auto-CORPus](https://github.com/omicsNLP/Auto-CORPus)) as microbial entities, their taxonomic identifiers and taxonomic rank.
 
