@@ -98,12 +98,17 @@ A new directory (`microbELP_result`) is created, containing the same files with 
   ]
 }
 ```
+
+---
+
 ## ⚙️ Installation
 MicrobELP has a number of dependencies on other Python packages; it is recommended to install it in an isolated environment.
 
 `git clone https://github.com/omicsNLP/microbELP.git`
 
 `pip install ./microbELP`
+
+---
 
 ## 🚀 Usage
 ### Main pipeline
@@ -115,6 +120,8 @@ microbELP('./$input_folder$')
 ```
 Optional arguments:
 ```python 
+from microbELP import microbELP
+
 microbELP('./$input_folder$', output_directory='$output_path$')   # Provide the path to where the results should be saved. Default value is './'
 ```
 ### Normalisation Utility
@@ -122,18 +129,23 @@ The package includes a helper function for standalone microbial name normalisati
 ```python
 from microbELP import microbiome_normalisation
 
-tax_id = microbiome_normalisation('Eubacterium rectale')
-print(tax_id)  # NCBI:txid39491
+microbiome_normalisation('Eubacterium rectale') # NCBI:txid39491
 ```
 If a match is found, it returns the NCBI Taxonomy identifier; otherwise `None`.
 
-## Important - Please Read!
+---
+
+## ⚠️ Important - Please Read!
 Published literature can be subject to copyright with restrictions on redistribution. Users need to be mindful of the data storage requirements and how the derived products are presented and shared. Many publishers provide guidance on the use of content for redistribution and use in research.
 
-## Acknowledgements
+---
+
+## 🤝 Acknowledgements
 MicrobELP was developed by Dhylan Patel based on earlier work (without normalisation) by Nazanin Faghih-Mirzaei.
 
-## Citing
+---
+
+## 📝 Citing
 
 Please indicate which version of microbELP you used.
 ```bibtex
@@ -150,7 +162,9 @@ Please indicate which version of microbELP you used.
 }
 ```
 
-## Version
+---
+
+## 🏷️ Version
 
 ### Version 0.2.0
 -> First public release.
