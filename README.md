@@ -5,7 +5,7 @@
 **microbELP** is a text mining pipeline for automatic recognition and normalisation of microbiome-related entities in biomedical literature.  
 It identifies microbial mentions (excluding viruses) in full-text scientific articles and links them to the **NCBI Taxonomy** identifiers.  
 
-The system was developed to support large-scale microbiome curation and downstream text mining tasks by providing consistent and standardised microbial annotations in BioC-formatted JSON files (from [Auto-CORPus](https://github.com/omicsNLP/Auto-CORPus).
+The system was developed to support large-scale microbiome curation and downstream text mining tasks by providing consistent and standardised microbial annotations in BioC-formatted JSON files (from [Auto-CORPus](https://github.com/omicsNLP/Auto-CORPus)).
 
 ---
 
@@ -54,7 +54,7 @@ The pipeline consists of the following main stages:
 ## 📁 Input and Output Format
 
 ### Input  
-A directory containing BioC JSON files (e.g. exported from **Auto-CORPus**).  
+A directory containing BioC JSON files (e.g. exported from [Auto-CORPus](https://github.com/omicsNLP/Auto-CORPus)).  
 
 Example filename:  
 ```text
@@ -98,7 +98,7 @@ A new directory (`microbELP_result`) is created, containing the same files with 
 }
 ```
 ## ⚙️ Installation
-MicrobELP has a number of dependencies on other Python packages, it is recommended to install it in an isolated environment.
+MicrobELP has a number of dependencies on other Python packages; it is recommended to install it in an isolated environment.
 
 `git clone https://github.com/omicsNLP/microbELP.git`
 
@@ -107,32 +107,31 @@ MicrobELP has a number of dependencies on other Python packages, it is recommend
 ## 🚀 Usage
 ### Main pipeline
 Run the pipeline on a folder of BioC files:
-```console
-python -m microbELP.run_pipeline \
-  --input_dir /path/to/bioc_files \
-  --output_dir /path/to/annotated_bioc
+```python
+from microbELP import microbELP
+
+microbELP('./$input_folder$')
 ```
 Optional arguments:
-```console
---force_reannotate     # reprocess all files even if annotated
---verbose              # print processing logs
+```python 
+     # reprocess all files even if annotated
+              # print processing logs
 ```
 ### Normalisation Utility
 The package includes a helper function for standalone microbial name normalisation:
 ```python
-from microbELP.normalisation import normalise_microbe
+from microbELP import microbiome_normalisation
 
-tax_id = normalise_microbe("Eubacterium rectale")
+tax_id = microbiome_normalisation('Eubacterium rectale')
 print(tax_id)  # NCBI:txid39491
 ```
-If a match is found, it returns the NCBI Taxonomy identifier, otherwise `None`.
+If a match is found, it returns the NCBI Taxonomy identifier; otherwise `None`.
 
 ## Important - Please Read!
 Published literature can be subject to copyright with restrictions on redistribution. Users need to be mindful of the data storage requirements and how the derived products are presented and shared. Many publishers provide guidance on the use of content for redistribution and use in research.
 
 ## Acknowledgements
 MicrobELP was developed by Dhylan Patel based on earlier work (without normalisation) by Nazanin Faghih-Mirzaei.
-
 
 ## Citing
 
