@@ -64,6 +64,7 @@ Code of Conduct. By contributing to this project you agree to abide by its terms
 
 ## Collaborators
 
+- [icprofsensei](https://github.com/icprofsensei)
+- [avishvj](https://github.com/avishvj)
 - [Antoinelfr](https://github.com/Antoinelfr)
 - [jmp111](https://github.com/jmp111)
-- [icprofsensei](https://github.com/icprofsensei)
