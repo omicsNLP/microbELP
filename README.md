@@ -28,7 +28,7 @@ Key features:
 The pipeline consists of the following main stages:
 
 1. **Input ingestion**  
-   - Loads all BioC JSON files from a specified input directory.  
+   - Identifies all BioC JSON files from a specified input directory.  
    - Only files with `_bioc` in their names are processed.
 
 2. **Named Entity Recognition (NER)**  
@@ -114,8 +114,7 @@ microbELP('./$input_folder$')
 ```
 Optional arguments:
 ```python 
-     # reprocess all files even if annotated
-              # print processing logs
+microbELP('./$input_folder$', output_directory='$output_path$')   # Provide the path to where the results should be saved. Default value is './'
 ```
 ### Normalisation Utility
 The package includes a helper function for standalone microbial name normalisation:
