@@ -14,8 +14,8 @@ setuptools.setup(
         "Operating System :: WINDOWS/LINUX/MACOS",
     ],
     install_requires=[
-'PySimpleGUI==4.60.5',
-'alive_progress==2.1.0'
+'PySimpleGUI',
+'alive_progress'
 ],
     python_requires='>=3.6'
 )
