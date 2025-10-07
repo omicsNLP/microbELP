@@ -1,21 +1,131 @@
 [![DOI:10.1101/2021.01.08.425887](http://img.shields.io/badge/DOI-10.1101/2025.08.29.671515-BE2536.svg)](https://doi.org/10.1101/2025.08.29.671515)
 
-# microbELP 
-**MicrobELP** is a dictionary-based pipeline using the NCBI taxonomy to automatically label entities in BioC-formatted JSON files (from [Auto-CORPus](https://github.com/omicsNLP/Auto-CORPus)) as microbial entities, their taxonomic identifiers and taxonomic rank.
+# 🦠 microbELP
 
+**microbELP** is a text mining pipeline for automatic recognition and normalisation of microbiome-related entities in biomedical literature.  
+It identifies microbial mentions (excluding viruses) in full-text scientific articles and links them to the **NCBI Taxonomy** identifiers.  
 
-## Installation
+The system was developed to support large-scale microbiome curation and downstream text mining tasks by providing consistent and standardised microbial annotations in BioC-formatted JSON files (from [Auto-CORPus](https://github.com/omicsNLP/Auto-CORPus).
+
+---
+
+## 🔍 Overview
+
+The **microbELP** pipeline processes research articles encoded in **BioC JSON** format.  
+It automatically detects mentions of microbiome entities — covering *archaea*, *bacteria*, and *fungi* — and attaches standardised taxonomy identifiers from NCBI.
+
+Key features:
+- **Automatic annotation** of microbiome mentions in BioC-formatted research articles.  
+- **Entity normalisation** to **NCBI Taxonomy IDs**, providing consistent reference identifiers.  
+- **Incremental annotation:** previously annotated files are skipped upon rerun.  
+- **Standalone normalisation function:** converts a microbial name string to an NCBI Taxonomy identifier.  
+- **Output in BioC JSON**, compatible with existing biomedical NLP pipelines.
+
+---
+
+## 🧩 Pipeline Overview
+
+The pipeline consists of the following main stages:
+
+1. **Input ingestion**  
+   - Loads all BioC JSON files from a specified input directory.  
+   - Only files with `_bioc` in their names are processed.
+
+2. **Named Entity Recognition (NER)**  
+   - Recognised mentions are annotated with their text offsets and types (e.g. `bacteria_species`, `bacteria_genus`, etc.).
+
+3. **Entity Normalisation**  
+   - Each detected entity is mapped to an NCBI Taxonomy identifier using curated lexical resources.  
+
+4. **Output generation**  
+   - Annotated BioC JSON files are written to a new output directory.  
+   - Each annotation includes:
+     - The **text span** of the entity  
+     - The **type** (e.g. `bacteria_species`)  
+     - The **NCBI identifier**  
+     - The **parent taxonomic identifier** (if available)  
+     - Metadata: annotator name, date, and annotation ID  
+
+5. **Incremental updates**  
+   - On re-execution, files that already contain microbiome annotations are skipped, ensuring efficient updates.
+
+---
+
+## 📁 Input and Output Format
+
+### Input  
+A directory containing BioC JSON files (e.g. exported from **Auto-CORPus**).  
+
+Example filename:  
+```text
+PMC92037_bioc.json
+```
+
+Each file contains a standard BioC structure:
+```json
+{
+  "source": "Auto-CORPus (full-text)",
+  "documents": [
+    {
+      "id": "PMC92037",
+      "passages": [
+        {
+          "text": "Phylogenetic Relationships of Butyrate-Producing Bacteria from the Human Gut",
+          "annotations": []
+        }
+      ]
+    }
+  ]
+}
+```
+### Output 
+A new directory (`microbELP_result`) is created, containing the same files with additional microbiome annotations:
+```json
+{
+  "annotations": [
+    {
+      "text": "Eubacterium rectale",
+      "infons": {
+        "identifier": "NCBI:txid39491",
+        "type": "bacteria_species",
+        "annotator": "microbELP@omicsNLP.ic.ac.uk",
+        "date": "2025-10-07 14:23:02",
+        "parent_taxonomic_id": "NCBI:txid186928"
+      },
+      "locations": {"offset": 1418, "length": 19}
+    }
+  ]
+}
+```
+## ⚙️ Installation
 MicrobELP has a number of dependencies on other Python packages, it is recommended to install it in an isolated environment.
 
 `git clone https://github.com/omicsNLP/microbELP.git`
 
-`pip install ./MicrobELP`
+`pip install ./microbELP`
 
-## Get started
+## 🚀 Usage
+### Main pipeline
+Run the pipeline on a folder of BioC files:
+```console
+python -m microbELP.run_pipeline \
+  --input_dir /path/to/bioc_files \
+  --output_dir /path/to/annotated_bioc
+```
+Optional arguments:
+```console
+--force_reannotate     # reprocess all files even if annotated
+--verbose              # print processing logs
+```
+### Normalisation Utility
+The package includes a helper function for standalone microbial name normalisation:
+```python
+from microbELP.normalisation import normalise_microbe
 
-## Load the result
-
-## Output details
+tax_id = normalise_microbe("Eubacterium rectale")
+print(tax_id)  # NCBI:txid39491
+```
+If a match is found, it returns the NCBI Taxonomy identifier, otherwise `None`.
 
 ## Important - Please Read!
 Published literature can be subject to copyright with restrictions on redistribution. Users need to be mindful of the data storage requirements and how the derived products are presented and shared. Many publishers provide guidance on the use of content for redistribution and use in research.
