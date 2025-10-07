@@ -27,9 +27,19 @@ MicrobELP was developed by Dhylan Patel based on earlier work (without normalisa
 ## Citing
 
 Please indicate which version of microbELP you used.
-
-Dhylan Patel, Avish Vijayaraghavan, Antoine Lain, Nazanin Faghih Mirzaei, Monica N. Mweetwa, Meiqi Wang, Tim Beck, and Joram M. Posma (2024) Microbial Named Entity Recognition and Normalisation for AI-assisted Literature Review in preparation
-
+```bibtex
+@article {Patel2025.08.29.671515,
+	author = {Patel, Dhylan and Lain, Antoine D. and Vijayaraghavan, Avish and Mirzaei, Nazanin Faghih and Mweetwa, Monica N. and Wang, Meiqi and Beck, Tim and Posma, Joram M.},
+	title = {Microbial Named Entity Recognition and Normalisation for AI-assisted Literature Review and Meta-Analysis},
+	elocation-id = {2025.08.29.671515},
+	year = {2025},
+	doi = {10.1101/2025.08.29.671515},
+	publisher = {Cold Spring Harbor Laboratory},
+	URL = {https://www.biorxiv.org/content/early/2025/08/30/2025.08.29.671515},
+	eprint = {https://www.biorxiv.org/content/early/2025/08/30/2025.08.29.671515.full.pdf},
+	journal = {bioRxiv}
+}
+```
 
 ## Version
 
