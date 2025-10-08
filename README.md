@@ -141,7 +141,7 @@ Published literature can be subject to copyright with restrictions on redistribu
 ---
 
 ## 🤝 Acknowledgements
-The microbELP pipeline was developed by Dhylan Patel ([icprofsensei](https://github.com/icprofsensei)) based on earlier work (without normalisation) by Nazanin Faghih-Mirzaei ([NazaninFaghih](https://github.com/NazaninFaghih)). The visualisation module was made by [avishvj](https://github.com/avishvj).
+The microbELP pipeline was developed by Dhylan Patel ([icprofsensei](https://github.com/icprofsensei)) based on earlier work (without normalisation) by Nazanin Faghih-Mirzaei ([NazaninFaghih](https://github.com/NazaninFaghih)). The visualisation module was made by Avish Vijayaraghavan ([avishvj](https://github.com/avishvj)).
 
 ---
 
