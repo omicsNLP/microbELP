@@ -66,5 +66,6 @@ Code of Conduct. By contributing to this project you agree to abide by its terms
 
 - [icprofsensei](https://github.com/icprofsensei)
 - [avishvj](https://github.com/avishvj)
+- [NazaninFaghih](https://github.com/NazaninFaghih)
 - [Antoinelfr](https://github.com/Antoinelfr)
 - [jmp111](https://github.com/jmp111)
