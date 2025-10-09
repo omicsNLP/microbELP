@@ -1,4 +1,5 @@
 [![DOI:10.1101/2021.01.08.425887](http://img.shields.io/badge/DOI-10.1101/2025.08.29.671515-BE2536.svg)](https://doi.org/10.1101/2025.08.29.671515)
+[![DOI](https://zenodo.org/badge/407162055.svg)](https://zenodo.org/doi/10.5281/zenodo.17305411)
 [![DOI](https://zenodo.org/badge/407162055.svg)](https://zenodo.org/doi/10.5281/zenodo.17288827)
 
 # 🦠 microbELP
@@ -55,7 +56,8 @@ The pipeline consists of the following main stages:
 ## 📁 Input and Output Format
 
 ### Input  
-A directory containing BioC JSON files (e.g. exported from [Auto-CORPus](https://github.com/omicsNLP/Auto-CORPus)).  
+A directory containing BioC JSON files (e.g. exported from [Auto-CORPus](https://github.com/omicsNLP/Auto-CORPus)).
+E.g. the unannotated test set available from [Zenodo](https://zenodo.org/doi/10.5281/zenodo.17305411).
 
 Example filename:  
 ```text
