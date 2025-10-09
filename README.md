@@ -3,6 +3,8 @@
 [![Hugging Face Models](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-microbELP_NER-green)](https://huggingface.co/omicsNLP/microbELP)
 [![Hugging Face Models](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-microbELP_NEN-green)](https://huggingface.co/omicsNLP/microbELP)
 [![DOI](https://zenodo.org/badge/407162055.svg)](https://zenodo.org/doi/10.5281/zenodo.17288827)
+[![benchmark](https://img.shields.io/badge/Codabench-microbELP-2C3F4C?style=for-the-badge&logo=codalab)](https://www.codabench.org/competitions/10913/)
+
 
 # 🦠 microbELP
 
