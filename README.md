@@ -5,6 +5,7 @@
 [![DOI](https://zenodo.org/badge/407162055.svg)](https://zenodo.org/doi/10.5281/zenodo.17288827)
 [![benchmark](https://img.shields.io/badge/Codabench-microbELP-2C3F4C?style=for-the-badge&logo=codalab)](https://www.codabench.org/competitions/10913/)
 
+[![Codabench](http://img.shields.io/badge/Codabench-microbELP-2C3F4C.svg)](https://www.codabench.org/competitions/10913/)
 
 # 🦠 microbELP
 
