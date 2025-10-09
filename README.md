@@ -4,7 +4,7 @@
 [![Hugging Face Models](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-microbELP_NEN-green)](https://huggingface.co/omicsNLP/microbELP)
 [![DOI](https://zenodo.org/badge/407162055.svg)](https://zenodo.org/doi/10.5281/zenodo.17288827)
 [![Codabench](http://img.shields.io/badge/Codabench-microbELP_benchmark-2C3F4C.svg)](https://www.codabench.org/competitions/10913/)
-[![CoDiet](https://img.shields.io/badge/%F0%9F%8D%8E_CoDiet-green)](https://www.codiet.eu)
+[![CoDiet](https://img.shields.io/badge/%F0%9F%8D%8E_used_in_CoDiet-5AA764)](https://www.codiet.eu)
 
 # 🦠 microbELP
 
