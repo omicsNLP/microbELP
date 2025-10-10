@@ -170,34 +170,30 @@ Please indicate which version of microbELP you used.
 
 ---
 
-## Contributors
+## 👥 Contributors
 
-<p align="center">
-  <a href="https://uk.linkedin.com/in/avish-vijayaraghavan" title="avishvj" style="text-decoration:none;">
-    <img src="https://github.com/avishvj.png" 
-         alt="Person One" 
-         width="90" height="90" 
-         style="border-radius:50%; margin:10px; border:3px solid #e1e4e8; transition:transform 0.2s; box-shadow:0 0 4px rgba(0,0,0,0.1);" 
-         onmouseover="this.style.transform='scale(1.08)'" 
-         onmouseout="this.style.transform='scale(1)'" />
+<div align="center">
+
+  <a href="https://github.com/avishvj" title="avishvj">
+    <img src="https://avatars.githubusercontent.com/u/20797620?v=4" width="90" height="90" 
+         style="clip-path: polygon(25% 5%, 75% 5%, 100% 50%, 75% 95%, 25% 95%, 0% 50%);
+                margin: 8px; object-fit: cover;"/>
   </a>
-  <a href="https://github.com/Antoinelfr" title="adlain" style="text-decoration:none;">
-    <img src="https://github.com/Antoinelfr.png" 
-         alt="Person One" 
-         width="90" height="90" 
-         style="border-radius:50%; margin:10px; border:3px solid #e1e4e8; transition:transform 0.2s; box-shadow:0 0 4px rgba(0,0,0,0.1);" 
-         onmouseover="this.style.transform='scale(1.08)'" 
-         onmouseout="this.style.transform='scale(1)'" />
+
+  <a href="https://github.com/Antoinelfr" title="Antoinelfr">
+    <img src="https://avatars.githubusercontent.com/u/83538367?v=4" width="90" height="90" 
+         style="clip-path: polygon(25% 5%, 75% 5%, 100% 50%, 75% 95%, 25% 95%, 0% 50%);
+                margin: 8px; object-fit: cover;"/>
   </a>
-  <a href="https://github.com/jmp111" title="JMP" style="text-decoration:none;">
-    <img src="https://github.com/jmp111.png" 
-         alt="Person One" 
-         width="90" height="90" 
-         style="border-radius:50%; margin:10px; border:3px solid #e1e4e8; transition:transform 0.2s; box-shadow:0 0 4px rgba(0,0,0,0.1);" 
-         onmouseover="this.style.transform='scale(1.08)'" 
-         onmouseout="this.style.transform='scale(1)'" />
+
+  <a href="https://github.com/jmp111" title="jmp111">
+    <img src="https://avatars.githubusercontent.com/u/60651038?v=4" width="90" height="90" 
+         style="clip-path: polygon(25% 5%, 75% 5%, 100% 50%, 75% 95%, 25% 95%, 0% 50%);
+                margin: 8px; object-fit: cover;"/>
   </a>
-</p>
+
+</div>
+
 
 ---
 
