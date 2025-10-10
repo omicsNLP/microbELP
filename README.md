@@ -170,6 +170,24 @@ Please indicate which version of microbELP you used.
 
 ---
 
+## Contributors
+
+<p align="center">
+  <a href="https://uk.linkedin.com/in/avish-vijayaraghavan" title="Avish Vijayaraghavan">
+    <img src="https://github.com/avishvj.png" alt="Avish Vijayaraghavan" width="72" height="72" style="border-radius:50%; margin:6px; border:2px solid #eee;" />
+  </a>
+
+  <a href="https://github.com/Antoinelfr" title="Antoine Lain">
+    <img src="https://github.com/Antoinelfr.png" alt="Antoine Lain" width="72" height="72" style="border-radius:50%; margin:6px; border:2px solid #eee;" />
+  </a>
+
+  <a href="https://github.com/jmp111" title="JMPosma">
+    <img src="https://github.com/jmp111.png" alt="JMPosma" width="72" height="72" style="border-radius:50%; margin:6px; border:2px solid #eee;" />
+  </a>
+</p>
+
+---
+
 ## 🏷️ Version
 
 ### Version 0.2.0
