@@ -170,29 +170,22 @@ Please indicate which version of microbELP you used.
 
 ---
 
-## 👥 Contributors
+## 👥 Code Contributors
 
-<div align="center">
-
-  <a href="https://github.com/avishvj" title="avishvj">
-    <img src="https://avatars.githubusercontent.com/u/20797620?v=4" width="90" height="90" 
-         style="clip-path: polygon(25% 5%, 75% 5%, 100% 50%, 75% 95%, 25% 95%, 0% 50%);
-                margin: 8px; object-fit: cover;"/>
+<p align="center">
+  <a href="https://uk.linkedin.com/in/avish-vijayaraghavan">
+    <img src="https://drive.google.com/uc?id=1DWL0azN6pn6HRHGQ0hSIoZYZLLG-F7wb" width="140" height="140" alt="Avish">
   </a>
-
-  <a href="https://github.com/Antoinelfr" title="Antoinelfr">
-    <img src="https://avatars.githubusercontent.com/u/83538367?v=4" width="90" height="90" 
-         style="clip-path: polygon(25% 5%, 75% 5%, 100% 50%, 75% 95%, 25% 95%, 0% 50%);
-                margin: 8px; object-fit: cover;"/>
+  &nbsp;&nbsp;&nbsp;&nbsp;
+  <a href="https://github.com/Antoinelfr">
+    <img src="https://drive.google.com/uc?id=1FH6XRJuam6eMuCzwWXBAIdDacIw8PFiu" width="140" height="140" alt="Antoine">
   </a>
-
-  <a href="https://github.com/jmp111" title="jmp111">
-    <img src="https://avatars.githubusercontent.com/u/60651038?v=4" width="90" height="90" 
-         style="clip-path: polygon(25% 5%, 75% 5%, 100% 50%, 75% 95%, 25% 95%, 0% 50%);
-                margin: 8px; object-fit: cover;"/>
+  &nbsp;&nbsp;&nbsp;&nbsp;
+  <a href="https://github.com/jmp111">
+    <img src="https://drive.google.com/uc?id=1kgEK2yqJG-eQnHGYDUH7mL2QeLtar2ZC" width="140" height="140" alt="Joram">
   </a>
+</p>
 
-</div>
 
 
 ---
