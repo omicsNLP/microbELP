@@ -173,16 +173,29 @@ Please indicate which version of microbELP you used.
 ## Contributors
 
 <p align="center">
-  <a href="https://uk.linkedin.com/in/avish-vijayaraghavan" title="Avish Vijayaraghavan">
-    <img src="https://github.com/avishvj.png" alt="Avish Vijayaraghavan" width="72" height="72" style="border-radius:50%; margin:6px; border:2px solid #eee;" />
+  <a href="https://uk.linkedin.com/in/avish-vijayaraghavan" title="avishvj" style="text-decoration:none;">
+    <img src="https://github.com/avishvj.png" 
+         alt="Person One" 
+         width="90" height="90" 
+         style="border-radius:50%; margin:10px; border:3px solid #e1e4e8; transition:transform 0.2s; box-shadow:0 0 4px rgba(0,0,0,0.1);" 
+         onmouseover="this.style.transform='scale(1.08)'" 
+         onmouseout="this.style.transform='scale(1)'" />
   </a>
-
-  <a href="https://github.com/Antoinelfr" title="Antoine Lain">
-    <img src="https://github.com/Antoinelfr.png" alt="Antoine Lain" width="72" height="72" style="border-radius:50%; margin:6px; border:2px solid #eee;" />
+  <a href="https://github.com/Antoinelfr" title="adlain" style="text-decoration:none;">
+    <img src="https://github.com/Antoinelfr.png" 
+         alt="Person One" 
+         width="90" height="90" 
+         style="border-radius:50%; margin:10px; border:3px solid #e1e4e8; transition:transform 0.2s; box-shadow:0 0 4px rgba(0,0,0,0.1);" 
+         onmouseover="this.style.transform='scale(1.08)'" 
+         onmouseout="this.style.transform='scale(1)'" />
   </a>
-
-  <a href="https://github.com/jmp111" title="JMPosma">
-    <img src="https://github.com/jmp111.png" alt="JMPosma" width="72" height="72" style="border-radius:50%; margin:6px; border:2px solid #eee;" />
+  <a href="https://github.com/jmp111" title="JMP" style="text-decoration:none;">
+    <img src="https://github.com/jmp111.png" 
+         alt="Person One" 
+         width="90" height="90" 
+         style="border-radius:50%; margin:10px; border:3px solid #e1e4e8; transition:transform 0.2s; box-shadow:0 0 4px rgba(0,0,0,0.1);" 
+         onmouseover="this.style.transform='scale(1.08)'" 
+         onmouseout="this.style.transform='scale(1)'" />
   </a>
 </p>
 
