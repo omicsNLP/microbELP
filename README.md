@@ -172,20 +172,28 @@ Please indicate which version of microbELP you used.
 
 ## 👥 Code Contributors
 
-<p align="center">
-  <a href="https://uk.linkedin.com/in/avish-vijayaraghavan">
-    <img src="https://drive.google.com/uc?id=1DWL0azN6pn6HRHGQ0hSIoZYZLLG-F7wb" width="140" height="140" alt="Avish">
-  </a>
-  &nbsp;&nbsp;&nbsp;&nbsp;
-  <a href="https://github.com/Antoinelfr">
-    <img src="https://drive.google.com/uc?id=1FH6XRJuam6eMuCzwWXBAIdDacIw8PFiu" width="140" height="140" alt="Antoine">
-  </a>
-  &nbsp;&nbsp;&nbsp;&nbsp;
-  <a href="https://github.com/jmp111">
-    <img src="https://drive.google.com/uc?id=1kgEK2yqJG-eQnHGYDUH7mL2QeLtar2ZC" width="140" height="140" alt="Joram">
-  </a>
-</p>
-
+<table align="center" cellpadding="0" cellspacing="0" border="0" style="border: 0; border-collapse: collapse;">
+  <tr>
+    <td align="center" style="padding: 0 0px; border: 0;">
+      <a href="https://uk.linkedin.com/in/avish-vijayaraghavan" style="text-decoration: none;">
+        <img src="https://drive.google.com/uc?id=1DWL0azN6pn6HRHGQ0hSIoZYZLLG-F7wb" width="140" height="140" style="display: block; border: 0;">
+        <div style="text-align: center; font-weight: bold;">Avish</div>
+      </a>
+    </td>
+    <td align="center" style="padding: 0 0px; border: 0;">
+      <a href="https://github.com/Antoinelfr" style="text-decoration: none;">
+        <img src="https://drive.google.com/uc?id=1FH6XRJuam6eMuCzwWXBAIdDacIw8PFiu" width="140" height="140" style="display: block; border: 0;">
+        <div style="text-align: center; font-weight: bold;">Antoine</div>
+      </a>
+    </td>
+    <td align="center" style="padding: 0 0px; border: 0;">
+      <a href="https://github.com/jmp111" style="text-decoration: none;">
+        <img src="https://drive.google.com/uc?id=1kgEK2yqJG-eQnHGYDUH7mL2QeLtar2ZC" width="140" height="140" style="display: block; border: 0;">
+        <div style="text-align: center; font-weight: bold;">Joram</div>
+      </a>
+    </td>
+  </tr>
+</table>
 
 
 ---
