@@ -170,13 +170,13 @@ Optional arguments:
 from microbELP import parallel_microbELP
 
 parallel_microbELP(
-    '/$input_folder$', 
+    '$input_folder$', 
     NUMBER_OF_CORES_ALLOCATED, 
     output_directory='$output_path$'  # Default: './'
 )
 ```
 
-The `output_directory` parameter lets you specify where to save the results. By default, output files are stored in the current working directory ('./') under `'./microbELP_result/'`.
+The `output_directory` parameter lets you specify where to save the results. By default, output files are stored in the current working directory (`'./'`) under `'./microbELP_result/'`.
 
 ---
 
