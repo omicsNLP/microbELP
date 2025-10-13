@@ -159,7 +159,7 @@ The library includes a visualisation module designed to generate phylogenetic tr
 To generate a single phylogenetic tree from the output of the pipeline or from a list of NCBI Taxonomy identifiers:
 
 ```python
-from microbELP.microbiome_visualisation import phylogenetic_tree_microbiome
+from microbELP import phylogenetic_tree_microbiome
 
 phylogenetic_tree_microbiome(
     input_path, 
@@ -187,7 +187,7 @@ This function produces a phylogenetic tree based on the counts of microbial taxa
 To compare microbial profiles between two datasets or domains:
 
 ```python
-from microbELP.microbiome_visualisation import comparative_phylogenetic_tree_microbiome
+from microbELP import comparative_phylogenetic_tree_microbiome
 
 comparative_phylogenetic_tree_microbiome(
     back_input_path, 
