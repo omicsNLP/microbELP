@@ -19,14 +19,3 @@ def microbiome_normalisation(word):
         return normalised_identifier
     else:
         return None
-
-# Used to demonstrate that the program is working. They can be removed in place of actual data.
-#testwords = ["Escherichia coli", "Clostridium botulinum", "Inventus fakus"]
-
-#for i in testwords:
-    #if i in CleanNames: # Adjust to lcCleanNames if only using lower case values
-        #match = next((l for l in dict_data if l['CleanName'] == i), None)
-        #normalised_identifier = match["TaxID"]
-        #print(normalised_identifier)
-    #else:
-        #print("Name not recognised")
