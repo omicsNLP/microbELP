@@ -282,35 +282,35 @@ Please indicate which version of microbELP you used.
 <p align="center">
   <kbd>
     <a href="https://github.com/icprofsensei">
-      <img src="https://drive.google.com/uc?id=1XJsbe4yKy0ncKy8Q4YWoAJgJrs9Ej2C4" width="140" height="140" style="border-radius:50%;">
+      <img src="https://drive.google.com/uc?id=1XJsbe4yKy0ncKy8Q4YWoAJgJrs9Ej2C4" width="90" height="90" style="border-radius:50%;">
     </a><br>
     👉 <strong><a href="https://github.com/icprofsensei" style="text-decoration:none; color:inherit;">Dhylan</a></strong>
   </kbd>
   &nbsp;&nbsp;
   <kbd>
     <a href="https://github.com/Antoinelfr">
-      <img src="https://drive.google.com/uc?id=1FH6XRJuam6eMuCzwWXBAIdDacIw8PFiu" width="140" height="140" style="border-radius:50%;">
+      <img src="https://drive.google.com/uc?id=1FH6XRJuam6eMuCzwWXBAIdDacIw8PFiu" width="90" height="90" style="border-radius:50%;">
     </a><br>
     👉 <strong><a href="https://github.com/Antoinelfr" style="text-decoration:none; color:inherit;">Antoine</a></strong>
   </kbd>
   &nbsp;&nbsp;
   <kbd>
     <a href="https://uk.linkedin.com/in/avish-vijayaraghavan">
-      <img src="https://drive.google.com/uc?id=1DWL0azN6pn6HRHGQ0hSIoZYZLLG-F7wb" width="140" height="140" style="border-radius:50%;">
+      <img src="https://drive.google.com/uc?id=1DWL0azN6pn6HRHGQ0hSIoZYZLLG-F7wb" width="90" height="90" style="border-radius:50%;">
     </a><br>
     👉 <strong><a href="https://uk.linkedin.com/in/avish-vijayaraghavan" style="text-decoration:none; color:inherit;">Avish</a></strong>
   </kbd>
   &nbsp;&nbsp;
   <kbd>
     <a href="https://github.com/NazaninFaghih">
-      <img src="https://drive.google.com/uc?id=1ILo7Fcp_qnSSFpHiMw-qo9kMPdfx41m0" width="140" height="140" style="border-radius:50%;">
+      <img src="https://drive.google.com/uc?id=1ILo7Fcp_qnSSFpHiMw-qo9kMPdfx41m0" width="90" height="90" style="border-radius:50%;">
     </a><br>
     👉 <strong><a href="https://github.com/NazaninFaghih" style="text-decoration:none; color:inherit;">Nazanin</a></strong>
   </kbd>
   &nbsp;&nbsp;
   <kbd>
     <a href="https://github.com/jmp111">
-      <img src="https://drive.google.com/uc?id=1kgEK2yqJG-eQnHGYDUH7mL2QeLtar2ZC" width="140" height="140" style="border-radius:50%;">
+      <img src="https://drive.google.com/uc?id=1kgEK2yqJG-eQnHGYDUH7mL2QeLtar2ZC" width="90" height="90" style="border-radius:50%;">
     </a><br>
     👉 <strong><a href="https://github.com/jmp111" style="text-decoration:none; color:inherit;">Joram</a></strong>
   </kbd>
