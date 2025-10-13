@@ -23,9 +23,11 @@ It automatically detects mentions of microbiome entities — covering *archaea*,
 Key features:
 - **Automatic annotation** of microbiome mentions in BioC-formatted research articles.  
 - **Entity normalisation** to **NCBI Taxonomy IDs**, providing consistent reference identifiers.  
+- **Parallel processing:** the pipeline leverages multiprocessing to distribute workloads across multiple CPU cores, reducing runtime on large datasets.  
+- **Visualisation module:** generates interactive and comparative **phylogenetic trees** to explore microbial diversity and overlap across studies or datasets.  
 - **Incremental annotation:** previously annotated files are skipped upon rerun.  
 - **Standalone normalisation function:** converts a microbial name string to an NCBI Taxonomy identifier.  
-- **Output in BioC JSON**, compatible with existing biomedical NLP pipelines.
+- **Output in BioC JSON**, compatible with existing biomedical NLP pipelines. 
 
 ---
 
@@ -44,7 +46,7 @@ The pipeline consists of the following main stages:
    - Each detected entity is mapped to an NCBI Taxonomy identifier using curated lexical resources.  
 
 4. **Output generation**  
-   - Annotated BioC JSON files are written to a new output directory called `'./microbELP_result/'`.  
+   - Annotated BioC JSON files are written to a new output directory called `'microbELP_result/'`.  
    - Each annotation includes:
      - The **text span** of the entity  
      - The **type** (e.g. `bacteria_species`)  
@@ -59,7 +61,7 @@ The pipeline consists of the following main stages:
 
 ## 📁 Input and Output Format
 
-### Input  
+### ↩️ Input  
 A directory containing BioC JSON files (e.g. exported from [Auto-CORPus](https://github.com/omicsNLP/Auto-CORPus)).
 E.g. the unannotated test set available from [Zenodo](https://zenodo.org/doi/10.5281/zenodo.17305411).
 
@@ -85,8 +87,8 @@ Each file contains a standard BioC structure:
   ]
 }
 ```
-### Output 
-A new directory (`microbELP_result`) is created, containing the same files with additional microbiome annotations:
+### ↪️ Output 
+A new directory (`microbELP_result/`) is created, containing the same files with additional microbiome annotations:
 ```json
 {
   "annotations": [
@@ -118,7 +120,7 @@ MicrobELP has a number of dependencies on other Python packages; it is recommend
 
 ## 🚀 Usage
 
-### Main pipeline
+### 🧰 Main pipeline
 
 Run the pipeline on a folder of BioC files:
 
@@ -136,7 +138,7 @@ from microbELP import microbELP
 microbELP('$input_folder$', output_directory='$output_path$')   # Provide the path to where the results should be saved. Default value is './'
 ```
 
-### Normalisation Utility
+### 🔗 Normalisation Utility
 
 The package includes a helper function for standalone microbial name normalisation:
 
@@ -148,13 +150,79 @@ microbiome_normalisation('Eubacterium rectale') # NCBI:txid39491
 
 If a match is found, it returns the NCBI Taxonomy identifier; otherwise `None`.
 
+### 🌳 Visualisation Module
+
+The library includes a visualisation module designed to generate phylogenetic trees of identified microbial taxa. This allows users to visually inspect the microbial composition of individual datasets or compare across different domains or study sections.
+
+#### Single Phylogenetic Tree
+
+To generate a single phylogenetic tree from the output of the pipeline or from a list of NCBI Taxonomy identifiers:
+
+```python
+from microbELP.microbiome_visualisation import phylogenetic_tree_microbiome
+
+phylogenetic_tree_microbiome(
+    input_path, 
+    figure_text = '',
+    ioa_filter = [], 
+    output_image_path = './',
+    save = False,
+    verbose = False
+)
+```
+
+Parameters:
+
+- `input_path` — Path to a `.csv`, `.tsv`, or `.txt` file containing a list of NCBI Taxonomy IDs, or a directory containing annotated files produced by the pipeline.
+- `figure_text` — Optional text displayed in the centre of the generated figure (e.g., study or dataset name).
+- `ioa_filter` — Only used when providing a directory as input. Enables filtering by specific sections of a paper (e.g., ['IAO:0000318'], ['IAO:0000318', 'IAO:0000319'] where `IAO:0000318` = results section and `IAO:0000319` = discussion section).
+- `output_image_path` — Path where the output will be saved. The images are stored under a new subdirectory `microbiome_visualisation/`.
+- `save` — If `True`, saves the generated images automatically.
+- `verbose` — If `True`, displays detailed logs of the tree generation process.
+
+This function produces a phylogenetic tree based on the counts of microbial taxa found in the provided dataset.
+
+#### Comparative Phylogenetic Tree
+
+To compare microbial profiles between two datasets or domains:
+
+```python
+from microbELP.microbiome_visualisation import comparative_phylogenetic_tree_microbiome
+
+comparative_phylogenetic_tree_microbiome(
+    back_input_path, 
+    front_input_path, 
+    ioa_filter = [], 
+    back_text = '', 
+    front_text = '',
+    overlap_text = '',
+    output_image_path = './', 
+    save = False,
+    verbose = False
+)
+```
+
+Parameters:
+
+- `back_input_path` — The reference dataset or domain to compare against.
+- `front_input_path` — The dataset or domain to highlight over the reference.
+- `ioa_filter`, `output_image_path`, `save`, and `verbose` — Same as in the previous function.
+- `back_text`, `front_text`, `overlap_text` — Optional labels to display in the generated figures (e.g., dataset names or conditions).
+
+This function generates four comparative images:
+
+1. Phylogenetic tree and counts for the `back_input_path`.
+2. Phylogenetic tree and counts for the `front_input_path`.
+3. Tree of `front_input_path` with q-values compared to `back_input_path`.
+4. Overlay of `front_input_path` on top of `back_input_path`, showing comparative abundance.
+
 ---
 
 ## 🐧 Linux / 🍎 macOS / 💠 Cygwin (Linux-like on Windows)
 
 To reduce processing time, microbELP leverages Python’s `multiprocessing` library. This allows the workload to be distributed across multiple CPU cores, significantly speeding up the overall execution of the pipeline.
 
-### Main pipeline
+### 🧰 Main pipeline
 
 Run the pipeline on a folder containing BioC files:
 
@@ -176,7 +244,7 @@ parallel_microbELP(
 )
 ```
 
-The `output_directory` parameter lets you specify where to save the results. By default, output files are stored in the current working directory (`'./'`) under `'./microbELP_result/'`.
+The `output_directory` parameter lets you specify where to save the results. By default, output files are stored in the current working directory (`'./'`) under `'microbELP_result/'`.
 
 ---
 
