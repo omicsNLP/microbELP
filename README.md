@@ -44,7 +44,7 @@ The pipeline consists of the following main stages:
    - Each detected entity is mapped to an NCBI Taxonomy identifier using curated lexical resources.  
 
 4. **Output generation**  
-   - Annotated BioC JSON files are written to a new output directory.  
+   - Annotated BioC JSON files are written to a new output directory called `'./microbELP_result/'`.  
    - Each annotation includes:
      - The **text span** of the entity  
      - The **type** (e.g. `bacteria_species`)  
@@ -117,27 +117,66 @@ MicrobELP has a number of dependencies on other Python packages; it is recommend
 ---
 
 ## 🚀 Usage
+
 ### Main pipeline
+
 Run the pipeline on a folder of BioC files:
+
 ```python
 from microbELP import microbELP
 
-microbELP('./$input_folder$')
+microbELP('$input_folder$')
 ```
+
 Optional arguments:
+
 ```python 
 from microbELP import microbELP
 
-microbELP('./$input_folder$', output_directory='$output_path$')   # Provide the path to where the results should be saved. Default value is './'
+microbELP('$input_folder$', output_directory='$output_path$')   # Provide the path to where the results should be saved. Default value is './'
 ```
+
 ### Normalisation Utility
+
 The package includes a helper function for standalone microbial name normalisation:
+
 ```python
 from microbELP import microbiome_normalisation
 
 microbiome_normalisation('Eubacterium rectale') # NCBI:txid39491
 ```
+
 If a match is found, it returns the NCBI Taxonomy identifier; otherwise `None`.
+
+---
+
+## 🐧 Linux / 🍎 macOS / 💠 Cygwin (Linux-like on Windows)
+
+To reduce processing time, microbELP leverages Python’s `multiprocessing` library. This allows the workload to be distributed across multiple CPU cores, significantly speeding up the overall execution of the pipeline.
+
+### Main pipeline
+
+Run the pipeline on a folder containing BioC files:
+
+```python
+from microbELP import parallel_microbELP
+
+parallel_microbELP('$input_folder$', NUMBER_OF_CORES_ALLOCATED)
+```
+
+Optional arguments:
+
+```python 
+from microbELP import parallel_microbELP
+
+parallel_microbELP(
+    '/$input_folder$', 
+    NUMBER_OF_CORES_ALLOCATED, 
+    output_directory='$output_path$'  # Default: './'
+)
+```
+
+The `output_directory` parameter lets you specify where to save the results. By default, output files are stored in the current working directory ('./') under `'./microbELP_result/'`.
 
 ---
 
