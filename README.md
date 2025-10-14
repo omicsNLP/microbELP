@@ -62,6 +62,7 @@ The pipeline consists of the following main stages:
 ## 📁 Input and Output Format
 
 ### ↩️ Input  
+
 A directory containing BioC JSON files (e.g. exported from [Auto-CORPus](https://github.com/omicsNLP/Auto-CORPus)).
 E.g. the unannotated test set available from [Zenodo](https://zenodo.org/doi/10.5281/zenodo.17305411).
 
@@ -88,6 +89,7 @@ Each file contains a standard BioC structure:
 }
 ```
 ### ↪️ Output 
+
 A new directory (`microbELP_result/`) is created, containing the same files with additional microbiome annotations:
 ```json
 {
@@ -110,6 +112,7 @@ A new directory (`microbELP_result/`) is created, containing the same files with
 ---
 
 ## ⚙️ Installation
+
 MicrobELP has a number of dependencies on other Python packages; it is recommended to install it in an isolated environment.
 
 `git clone https://github.com/omicsNLP/microbELP.git`
@@ -255,12 +258,23 @@ The `output_directory` parameter lets you specify where to save the results. By 
 ---
 
 ## ⚠️ Important - Please Read!
+
 Published literature can be subject to copyright with restrictions on redistribution. Users need to be mindful of the data storage requirements and how the derived products are presented and shared. Many publishers provide guidance on the use of content for redistribution and use in research.
 
 ---
 
 ## 🤝 Acknowledgements
-The microbELP pipeline was developed by Dhylan Patel ([icprofsensei](https://github.com/icprofsensei)) based on earlier work (without normalisation) by Nazanin Faghih-Mirzaei ([NazaninFaghih](https://github.com/NazaninFaghih)). The visualisation module was made by Avish Vijayaraghavan ([avishvj](https://github.com/avishvj)).
+
+The corpus was collected using [cadmus](https://github.com/biomedicalinformaticsgroup/cadmus) 
+<a href="https://github.com/biomedicalinformaticsgroup/cadmus"><img src="https://img.shields.io/github/stars/biomedicalinformaticsgroup/cadmus.svg?logo=github&label=Stars" style="vertical-align:middle;"/></a>,
+and the raw file formats were then standardised to BioC using [Auto-CORPus](https://github.com/omicsNLP/Auto-CORPus) 
+<a href="https://github.com/omicsNLP/Auto-CORPus"><img src="https://img.shields.io/github/stars/omicsNLP/Auto-CORPus.svg?logo=github&label=Stars" style="vertical-align:middle;"/></a>.
+The original weights before fine-tuning for named entity recognition and entity linking were obtained from 
+[dmis-lab/biobert-base-cased-v1.1](https://huggingface.co/dmis-lab/biobert-base-cased-v1.1) 
+<a href="https://huggingface.co/dmis-lab/biobert-base-cased-v1.1"><img src="https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-biobert-FFD21E" style="vertical-align:middle;"/></a>.
+Finally, the entity linking fine-tuning and inference scripts were obtained and modified from 
+[BioSyn](https://github.com/dmis-lab/BioSyn) 
+<a href="https://github.com/dmis-lab/BioSyn"><img src="https://img.shields.io/github/stars/dmis-lab/BioSyn.svg?logo=github&label=Stars" style="vertical-align:middle;"/></a>.
 
 ---
 
