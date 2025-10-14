@@ -18,7 +18,7 @@ The system was developed to support large-scale microbiome curation and downstre
 ## 🔍 Overview
 
 The **microbELP** pipeline processes research articles encoded in **BioC JSON** format.  
-It automatically detects mentions of microbiome entities — covering *archaea*, *bacteria*, and *fungi* — and attaches standardised taxonomy identifiers from NCBI.
+It automatically detects mentions of microbiome entities, covering *archaea*, *bacteria*, *fungi*, and attaches standardised taxonomy identifiers from NCBI.
 
 Key features:
 - **Automatic annotation** of microbiome mentions in BioC-formatted research articles.  
@@ -127,7 +127,7 @@ Run the pipeline on a folder of BioC files:
 ```python
 from microbELP import microbELP
 
-microbELP('$input_folder$')
+microbELP('$input_folder$') #type str
 ```
 
 Optional arguments:
@@ -135,7 +135,10 @@ Optional arguments:
 ```python 
 from microbELP import microbELP
 
-microbELP('$input_folder$', output_directory='$output_path$')   # Provide the path to where the results should be saved. Default value is './'
+microbELP(
+	'$input_folder$', #type str
+	output_directory='$output_path$' #type str # The path to where the results should be saved. Default value is './'
+)  
 ```
 
 ### 🔗 Normalisation Utility
@@ -145,7 +148,7 @@ The package includes a helper function for standalone microbial name normalisati
 ```python
 from microbELP import microbiome_normalisation
 
-microbiome_normalisation('Eubacterium rectale') # NCBI:txid39491
+microbiome_normalisation('Eubacterium rectale') #type str # Output: NCBI:txid39491
 ```
 
 If a match is found, it returns the NCBI Taxonomy identifier; otherwise `None`.
@@ -162,23 +165,23 @@ To generate a single phylogenetic tree from the output of the pipeline or from a
 from microbELP import phylogenetic_tree_microbiome
 
 phylogenetic_tree_microbiome(
-    input_path, 
-    figure_text = '',
-    ioa_filter = [], 
-    output_image_path = './',
-    save = False,
-    verbose = False
+    input_path, #type str
+    figure_text = '', #type str
+    ioa_filter = [],  #type list
+    output_image_path = './', #type str
+    save = False, #type boolean
+    verbose = False #type boolean
 )
 ```
 
 Parameters:
 
-- `input_path` — Path to a `.csv`, `.tsv`, or `.txt` file containing a list of NCBI Taxonomy IDs, or a directory containing annotated files produced by the pipeline.
-- `figure_text` — Optional text displayed in the centre of the generated figure (e.g., study or dataset name).
-- `ioa_filter` — Only used when providing a directory as input. Enables filtering by specific sections of a paper (e.g., ['IAO:0000318'], ['IAO:0000318', 'IAO:0000319'] where `IAO:0000318` = results section and `IAO:0000319` = discussion section).
-- `output_image_path` — Path where the output will be saved. The images are stored under a new subdirectory `microbiome_visualisation/`.
-- `save` — If `True`, saves the generated images automatically.
-- `verbose` — If `True`, displays detailed logs of the tree generation process.
+- `input_path` <class 'str'> Path to a `.csv`, `.tsv`, or `.txt` file containing a list of NCBI Taxonomy IDs, or a directory containing annotated files produced by the pipeline.
+- `figure_text` <class 'str'> Optional text displayed in the centre of the generated figure (e.g., study or dataset name).
+- `ioa_filter` <class 'list'> Only used when providing a directory as input. Enables filtering by specific sections of a paper (e.g., ['IAO:0000318'], ['IAO:0000318', 'IAO:0000319'] where `IAO:0000318` = results section and `IAO:0000319` = discussion section).
+- `output_image_path` <class 'str'> Path where the output will be saved. The images are stored under a new subdirectory `microbiome_visualisation/`.
+- `save` <class 'bool'> If `True`, saves the generated images automatically.
+- `verbose` <class 'bool'> If `True`, displays detailed logs of the tree generation process.
 
 This function produces a phylogenetic tree based on the counts of microbial taxa found in the provided dataset.
 
@@ -190,24 +193,24 @@ To compare microbial profiles between two datasets or domains:
 from microbELP import comparative_phylogenetic_tree_microbiome
 
 comparative_phylogenetic_tree_microbiome(
-    back_input_path, 
-    front_input_path, 
-    ioa_filter = [], 
-    back_text = '', 
-    front_text = '',
-    overlap_text = '',
-    output_image_path = './', 
-    save = False,
-    verbose = False
+    back_input_path, #type str
+    front_input_path, #type str
+    ioa_filter = [], #type list
+    back_text = '', #type str
+    front_text = '', #type str
+    overlap_text = '', #type str
+    output_image_path = './', #type str
+    save = False, #type boolean
+    verbose = False #type boolean
 )
 ```
 
 Parameters:
 
-- `back_input_path` — The reference dataset or domain to compare against.
-- `front_input_path` — The dataset or domain to highlight over the reference.
-- `ioa_filter`, `output_image_path`, `save`, and `verbose` — Same as in the previous function.
-- `back_text`, `front_text`, `overlap_text` — Optional labels to display in the generated figures (e.g., dataset names or conditions).
+- `back_input_path` <class 'str'> The reference dataset or domain to compare against.
+- `front_input_path` <class 'str'> The dataset or domain to highlight over the reference.
+- `ioa_filter` <class 'list'>, `output_image_path` <class 'str'>, `save` <class 'bool'>, and `verbose` <class 'bool'>: Same as in the previous function.
+- `back_text` <class 'str'>, `front_text` <class 'str'>, `overlap_text` <class 'str'>: Optional labels to display in the generated figures (e.g., dataset names or conditions).
 
 This function generates four comparative images:
 
@@ -229,7 +232,10 @@ Run the pipeline on a folder containing BioC files:
 ```python
 from microbELP import parallel_microbELP
 
-parallel_microbELP('$input_folder$', NUMBER_OF_CORES_ALLOCATED)
+parallel_microbELP(
+	'$input_folder$', #type str
+	NUMBER_OF_CORES_ALLOCATED #type int
+)
 ```
 
 Optional arguments:
@@ -238,9 +244,9 @@ Optional arguments:
 from microbELP import parallel_microbELP
 
 parallel_microbELP(
-    '$input_folder$', 
-    NUMBER_OF_CORES_ALLOCATED, 
-    output_directory='$output_path$'  # Default: './'
+    '$input_folder$', #type str
+    NUMBER_OF_CORES_ALLOCATED, #type int
+    output_directory='$output_path$' #type str # Default: './'
 )
 ```
 
