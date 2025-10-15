@@ -280,7 +280,8 @@ Finally, the entity linking fine-tuning and inference scripts were obtained and 
 
 ## 📝 Citing
 
-Please indicate which version of microbELP you used.
+If you find this repository useful, please consider giving a star ⭐ and citation 📝:
+
 ```bibtex
 @article {Patel2025.08.29.671515,
 	author = {Patel, Dhylan and Lain, Antoine D. and Vijayaraghavan, Avish and Mirzaei, Nazanin Faghih and Mweetwa, Monica N. and Wang, Meiqi and Beck, Tim and Posma, Joram M.},
