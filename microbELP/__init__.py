@@ -23,3 +23,4 @@ from microbELP.stats import storey_tibshirani_fdr
 from microbELP.stats import transform_results_to_dataframe
 from microbELP.microbiome_visualisation import phylogenetic_tree_microbiome
 from microbELP.microbiome_visualisation import comparative_phylogenetic_tree_microbiome
+from microbELP.microbiome_dictionary import load_saved_dictionary
