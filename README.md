@@ -243,10 +243,11 @@ Run the pipeline on a folder containing BioC files:
 ```python
 from microbELP import parallel_microbELP
 
-parallel_microbELP(
-	'$input_folder$', #type str
-	NUMBER_OF_CORES_ALLOCATED #type int
-)
+if __name__ == "__main__":
+	parallel_microbELP(
+		'$input_folder$', #type str
+		NUMBER_OF_CORES_ALLOCATED #type int
+	)
 ```
 
 Optional arguments:
@@ -254,11 +255,12 @@ Optional arguments:
 ```python 
 from microbELP import parallel_microbELP
 
-parallel_microbELP(
-    '$input_folder$', #type str
-    NUMBER_OF_CORES_ALLOCATED, #type int
-    output_directory='$output_path$' #type str # Default: './'
-)
+if __name__ == "__main__":
+	parallel_microbELP(
+    	'$input_folder$', #type str
+    	NUMBER_OF_CORES_ALLOCATED, #type int
+    	output_directory='$output_path$' #type str # Default: './'
+	)
 ```
 
 The `output_directory` parameter lets you specify where to save the results. By default, output files are stored in the current working directory (`'./'`) under `'microbELP_result/'`.
