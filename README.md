@@ -156,6 +156,14 @@ microbiome_normalisation('Eubacterium rectale') #type str # Output: NCBI:txid394
 
 If a match is found, it returns the NCBI Taxonomy identifier; otherwise `None`.
 
+For time efficiency, as loading the vocabulary is what requires the most amount of time, you can provide a list of strings as input and receive a list of dictionaries as output in the format of: `input = ['Eubacterium rectale', 'bacteria']`, `output = [{'Eubacterium rectale': 'NCBI:txid39491'}, {'bacteria': 'NCBI:txid2'}]`.
+
+```python
+from microbELP import microbiome_normalisation
+
+microbiome_normalisation(['Eubacterium rectale', 'bacteria']) #type list # Output: [{'Eubacterium rectale': 'NCBI:txid39491'}, {'bacteria': 'NCBI:txid2'}]
+```
+
 ### 🌳 Visualisation Module
 
 The library includes a visualisation module designed to generate phylogenetic trees of identified microbial taxa. This allows users to visually inspect the microbial composition of individual datasets or compare across different domains or study sections.
