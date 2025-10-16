@@ -31,5 +31,5 @@ setuptools.setup(
     "transformers>=4.40.0",
     "chardet"
     ],
-    python_requires='>=3.6'
+    python_requires='>=3.9'
 )
