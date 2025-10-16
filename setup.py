@@ -3,7 +3,7 @@ import setuptools
 setuptools.setup(
     name="microbELP",
     version="0.2.0",
-    author="Dhylan Patel, Antoine D. Lain, Joram M. Posma",
+    author="Dhylan Patel, Antoine D. Lain, Avish Vijayaraghavan, Joram M. Posma",
     author_email="adlain@ic.ac.uk, j.posma11@imperial.ac.uk",
     description="This projects is to build a pipeline for Microbiome NER and NEN.",
     packages=setuptools.find_packages(),
@@ -25,7 +25,13 @@ setuptools.setup(
     'pandas==2.2.2',
     'matplotlib==3.8.4',
     'scipy==1.11.4',
-    'statsmodels==0.14.1'
+    'statsmodels==0.14.1',
+    'tqdm',
+    'scikit-learn',
+    'pytorch',
+    'cudatoolkit',
+    'transformers',
+    'chardet'
     ],
     python_requires='>=3.6'
 )
