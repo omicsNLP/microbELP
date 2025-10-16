@@ -32,4 +32,4 @@ def microbiome_normalisation(word):
                 output_list.append({word[i]: None})
         return output_list
     else:
-        return 'Input error, this function only accept one "str" or a list of "str" has input.'
+        return 'Input error, this function only accepts one "str" microbiome mention to normalise or a list of "str" microbiome mentions to normalise has input.'
