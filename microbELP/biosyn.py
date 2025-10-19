@@ -423,7 +423,7 @@ def cache_or_load_dictionary_ontology(biosyn, model_name_or_path, dictionary_pat
     return dictionary, dict_sparse_embeds, dict_dense_embeds
 
 def microbiome_biosyn_normalisation(to_normalise, candidates_number = 5, max_lenght = 25, ontology = '', save = False):
-        if not isinstance(to_normalise, (str, list)):
+    if not isinstance(to_normalise, (str, list)):
         print('Parameter "to_normalise": Input error, this function only accepts a string or list of strings representing microbiome entities to be normalised.')
         return None
     else:
