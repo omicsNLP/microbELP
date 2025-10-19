@@ -423,13 +423,31 @@ def cache_or_load_dictionary_ontology(biosyn, model_name_or_path, dictionary_pat
     return dictionary, dict_sparse_embeds, dict_dense_embeds
 
 def microbiome_biosyn_normalisation(to_normalise, candidates_number = 5, max_lenght = 25, ontology = '', save = False):
-    
-    if type(to_normalise) == str:
-        input_list = [to_normalise]
-    elif type(to_normalise) == list:
-        input_list = to_normalise
+        if not isinstance(to_normalise, (str, list)):
+        print('Parameter "to_normalise": Input error, this function only accepts a string or list of strings representing microbiome entities to be normalised.')
+        return None
     else:
-        return 'Input error, this function only accepts one "str" microbiome mention to normalise or a list of "str" microbiome mentions to normalise has input.'
+        pass
+    if not isinstance(candidates_number, int):
+        print('Parameter "candidates_number": Input error, this function only accepts an integer indicating the number of top-k predictions to return from microbiome_biosyn_normalisation.')
+        return None
+    else:
+        pass
+    if not isinstance(max_lenght, int):
+        print('Parameter "max_lenght": Input error, this function only accepts an integer defining the maximum sequence length for microbiome_biosyn_normalisation.')
+        return None
+    else:
+        pass
+    if not isinstance(ontology, str):
+        print('Parameter "ontology": Input error, this function only accepts a string path to the ontology file (txt format), where each line is defined as "id||entity".')
+        return None
+    else:
+        pass
+    if not isinstance(save, bool):
+        print('Parameter "save": Input error, this function only accepts a boolean value (True/False) to indicate whether to save the predictions as a JSON file.')
+        return None
+    else:
+        pass
     
     model_name_or_path = 'omicsNLP/microbELP_NEN'
     
