@@ -18,10 +18,24 @@ def run_ann_initialsteps(input_dir, output_dir, count, keyword, casesens, proces
     return True
 
 def parallel_microbELP(input_directory, numbers_of_cores, output_directory = './', count = 0, keyword = 'ALL', casesens = 'no'):
-
+    if type(input_directory) != str:
+        print('Parameter "input_directory": Input error, this function only accepts a string directory with BioC files to be annotated with "*_bioc.json", e.g. for "./bioc/*_bioc.json", requires "./bioc" as input.')
+        return None
+    else:
+        pass
+    if type(output_directory) != str:
+        print('Parameter "output_directory": Input error, this function only accepts a string directory to save the annotated files, e.g. for "./bioc_annotated/", the function will generate and save the output in "./bioc_annotated/microbELP_DL_result/".')
+        return None
+    else:
+        pass
+    if type(numbers_of_cores) != int:
+        print('Parameter "numbers_of_cores": Input error, this function only accepts int, it will request the equivalent number of cores to be used in parallelism.')
+        return None
+    else:
+        pass
 	if numbers_of_cores >= mp.cpu_count():
 	    print('The number of cores you want to use is equal or greater than the numbers of cores in your machine. We stop the script now')
-	    exit()
+	    return None
 	else:
 	    par_core = numbers_of_cores
 
@@ -47,7 +61,7 @@ def parallel_microbELP(input_directory, numbers_of_cores, output_directory = './
 	
 	if len(final_input_bioc) == 0:
 		print('No new document to annotate.')
-		exit()
+        return None
 
 	if par_core > 1:
 	    data = []
