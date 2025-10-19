@@ -73,6 +73,7 @@ def microbELP_DL(input_directory, output_dir = './', normalisation = True):
             d = json.load(f)
         total = 1
         for abc in range(len(d['documents'][0]['passages'])):
+            paragraph_offset = d['documents'][0]['passages'][abc]['offset']
             sentence_text = [d['documents'][0]['passages'][abc]['text'].replace('\n', ' ')]
 
             start_meta, len_meta, trigger_meta = [], [], []
@@ -185,7 +186,7 @@ def microbELP_DL(input_directory, output_dir = './', normalisation = True):
                                'annotator': 'microbELP@omicsNLP.github',
                                'updated_at': f'{formatted_date}'},
                         'text': annotations[k]['Entity'],
-                        'locations': [{'offset': annotations[k]['locations']['offset'], 'length': annotations[k]['locations']['length']}]
+                        'locations': [{'offset': annotations[k]['locations']['offset'] + paragraph_offset, 'length': annotations[k]['locations']['length']}]
                     })
                     total += 1
                 d['documents'][0]['passages'][abc]['annotations'] = annotations_list
@@ -198,7 +199,7 @@ def microbELP_DL(input_directory, output_dir = './', normalisation = True):
                                'annotator': 'microbELP@omicsNLP.github',
                                'updated_at': f'{formatted_date}'},
                         'text': annotations[k]['Entity'],
-                        'locations': [{'offset': annotations[k]['locations']['offset'], 'length': annotations[k]['locations']['length']}]
+                        'locations': [{'offset': annotations[k]['locations']['offset'] + paragraph_offset, 'length': annotations[k]['locations']['length']}]
                     })
                     total += 1
                 d['documents'][0]['passages'][abc]['annotations'] = annotations_list
