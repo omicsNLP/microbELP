@@ -16,6 +16,36 @@ def phylogenetic_tree_microbiome(input_path,
                                  output_image_path = './',
                                  save = False,
                                  verbose = False):
+    if not isinstance(input_path, str):
+        print('Parameter "input_path": Input error, this function only accepts a string path. The path can be a .csv, .tsv, or .txt file containing NCBI Taxonomy IDs, or a directory containing annotated files produced by the pipeline.')
+        return None
+    else:
+        pass
+    if not isinstance(figure_text, str):
+        print('Parameter "figure_text": Input error, this function only accepts a string, which will be displayed in the centre of the generated figure (e.g., the study or dataset name).')
+        return None
+    else:
+        pass
+    if not isinstance(ioa_filter, list):
+        print('Parameter "ioa_filter": Input error, this function only accepts a list of section identifiers (e.g., ["IAO:0000318", "IAO:0000319"]). Only used when providing a directory as input.')
+        return None
+    else:
+        pass
+    if not isinstance(output_image_path, str):
+        print('Parameter "output_image_path": Input error, this function only accepts a string directory path where the output images will be saved. Images will be stored under a new subdirectory "microbiome_visualisation/".')
+        return None
+    else:
+        pass
+    if not isinstance(save, bool):
+        print('Parameter "save": Input error, this function only accepts a boolean value (True/False) to specify whether to save the generated images automatically.')
+        return None
+    else:
+        pass
+    if not isinstance(verbose, bool):
+        print('Parameter "verbose": Input error, this function only accepts a boolean value (True/False) to control whether detailed logs of the tree generation process are displayed.')
+        return None
+    else:
+        pass
     if 'tsv' in input_path.lower():
         ioa_filter = []
     elif 'csv' in input_path.lower():
@@ -130,6 +160,51 @@ def comparative_phylogenetic_tree_microbiome(back_input_path,
                                              output_image_path = './', 
                                              save = False,
                                              verbose = False):
+    if not isinstance(back_input_path, str):
+        print('Parameter "back_input_path": Input error, this function only accepts a string path to the reference dataset or domain to compare against.')
+        return None
+    else:
+        pass
+    if not isinstance(front_input_path, str):
+        print('Parameter "front_input_path": Input error, this function only accepts a string path to the dataset or domain to highlight over the reference.')
+        return None
+    else:
+        pass
+    if not isinstance(ioa_filter, list):
+        print('Parameter "ioa_filter": Input error, this function only accepts a list of section identifiers (e.g., ["IAO:0000318", "IAO:0000319"]). Used when filtering annotated directory inputs.')
+        return None
+    else:
+        pass
+    if not isinstance(back_text, str):
+        print('Parameter "back_text": Input error, this function only accepts a string. It is an optional label displayed in the generated figure (e.g., reference dataset name).')
+        return None
+    else:
+        pass
+    if not isinstance(front_text, str):
+        print('Parameter "front_text": Input error, this function only accepts a string. It is an optional label displayed in the generated figure (e.g., highlighted dataset name).')
+        return None
+    else:
+        pass
+    if not isinstance(overlap_text, str):
+        print('Parameter "overlap_text": Input error, this function only accepts a string. It is an optional label displayed in the figure to represent overlapping taxa or entities.')
+        return None
+    else:
+        pass
+    if not isinstance(output_image_path, str):
+        print('Parameter "output_image_path": Input error, this function only accepts a string directory path where output images will be saved. Images will be stored under a new subdirectory "microbiome_visualisation/".')
+        return None
+    else:
+        pass
+    if not isinstance(save, bool):
+        print('Parameter "save": Input error, this function only accepts a boolean (True/False) indicating whether to save the generated comparative images automatically.')
+        return None
+    else:
+        pass
+    if not isinstance(verbose, bool):
+        print('Parameter "verbose": Input error, this function only accepts a boolean (True/False) indicating whether to display detailed logs during the comparative tree generation process.')
+        return None
+    else:
+        pass
     ## First plot generation
     if 'tsv' in back_input_path.lower():
         ioa_filter = []
