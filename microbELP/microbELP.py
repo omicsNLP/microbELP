@@ -21,5 +21,5 @@ def microbELP(input_directory, output_directory = './', count = 0, keyword = 'AL
         return None
     else:
         pass
-	result = ann(input_directory, output_directory, count, keyword, casesens)
-	result.initialsteps()
+    result = ann(input_directory, output_directory, count, keyword, casesens)
+    result.initialsteps()
