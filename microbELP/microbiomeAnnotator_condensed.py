@@ -8,8 +8,6 @@ from collections import Counter
 from alive_progress import alive_bar
 from microbELP.load_dic import load_dic
 
-
-
 class Annotator:
         def __init__(self, input_directory, output_directory, count, keyword, casesens):
             #Initialise inputs
@@ -55,7 +53,9 @@ class Annotator:
             for n in range(len(to_do)):
                 if to_do[n][1] not in done:
                     PMC_files.append(to_do[n][0])
-        
+            if len(PMC_files) == 0:
+                print('No new document to annotate.')
+                return None
 
 #For each PMC file, the data is loaded as a json and my_list is made. Text is under documents --> passages --> para--> annotations and textsection --> word     
             for i in range(len(PMC_files)):
