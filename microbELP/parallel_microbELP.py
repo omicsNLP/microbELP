@@ -33,58 +33,49 @@ def parallel_microbELP(input_directory, numbers_of_cores, output_directory = './
         return None
     else:
         pass
-	if numbers_of_cores >= mp.cpu_count():
-	    print('The number of cores you want to use is equal or greater than the numbers of cores in your machine. We stop the script now')
-	    return None
-	else:
-	    par_core = numbers_of_cores
-
-	if input_directory[-1] == '/':
-		input_bioc = glob.glob(input_directory + '*_bioc.json')
-	else:
-		input_bioc = glob.glob(input_directory + '/*_bioc.json')
-
-	if output_directory[-1] == '/':
-		done = glob.glob(output_directory + 'microbELP_result' + '/*_bioc.json')
-	else:
-		done = glob.glob(output_directory + '/microbELP_result' + '/*_bioc.json')
-
-	final_input_bioc = []
-	for i in range(len(done)):
-		done[i] = done[i].split('/')[-1]
-	for i in range(len(input_bioc)):
-		if input_bioc[i].split('/')[-1] not in done:
-			final_input_bioc.append(input_bioc[i])
-
-	if len(final_input_bioc) < par_core:
-	        par_core = len(final_input_bioc)
-	
-	if len(final_input_bioc) == 0:
-		print('No new document to annotate.')
+    if numbers_of_cores >= mp.cpu_count():
+        print('The number of cores you want to use is equal or greater than the numbers of cores in your machine. We stop the script now')
         return None
-
-	if par_core > 1:
-	    data = []
-	    for i in range(par_core):
-	        if i == 0:
-	            current_data = (final_input_bioc[:round(len(final_input_bioc)/par_core)], output_directory, count, keyword, casesens, i+1)
-	            data.append(current_data)
-	        elif i > 0 and i+1 != par_core:
-	            current_data = (final_input_bioc[(round(len(final_input_bioc)/par_core))*i:(round(len(final_input_bioc)/par_core))*(i+1)], output_directory, count, keyword, casesens, i+1)
-	            data.append(current_data)
-	        else:
-	            current_data = (final_input_bioc[round(len(final_input_bioc)/par_core)*i:], output_directory, count, keyword, casesens, i+1)
-	            data.append(current_data)
-	else:
-	    data = [(final_input_bioc, output_directory, count, keyword, casesens, 1)]
-
-	now = datetime.now()
-	current_time = now.strftime("%d/%m/%Y, %H:%M:%S")
-	print(str(current_time) + str(' Process starting'))
-
-	with mp.Pool(par_core) as pool:
-	    pool.starmap(run_ann_initialsteps, data)
-
-	now = datetime.now()
-	current_time = now.strftime("%d/%m/%Y, %H:%M:%S")
-	print(str(current_time) + str(' Process complete'))
+    else:
+        par_core = numbers_of_cores
+    if input_directory[-1] == '/':
+        input_bioc = glob.glob(input_directory + '*_bioc.json')
+    else:
+        input_bioc = glob.glob(input_directory + '/*_bioc.json')
+    if output_directory[-1] == '/':
+        done = glob.glob(output_directory + 'microbELP_result' + '/*_bioc.json')
+    else:
+        done = glob.glob(output_directory + '/microbELP_result' + '/*_bioc.json')
+    final_input_bioc = []
+    for i in range(len(done)):
+        done[i] = done[i].split('/')[-1]
+    for i in range(len(input_bioc)):
+        if input_bioc[i].split('/')[-1] not in done:
+            final_input_bioc.append(input_bioc[i])
+    if len(final_input_bioc) < par_core:
+        par_core = len(final_input_bioc)
+    if len(final_input_bioc) == 0:
+        print('No new document to annotate.')
+        return None
+    if par_core > 1:
+        data = []
+        for i in range(par_core):
+            if i == 0:
+                current_data = (final_input_bioc[:round(len(final_input_bioc)/par_core)], output_directory, count, keyword, casesens, i+1)
+                data.append(current_data)
+            elif i > 0 and i+1 != par_core:
+                current_data = (final_input_bioc[(round(len(final_input_bioc)/par_core))*i:(round(len(final_input_bioc)/par_core))*(i+1)], output_directory, count, keyword, casesens, i+1)
+                data.append(current_data)
+            else:
+                current_data = (final_input_bioc[round(len(final_input_bioc)/par_core)*i:], output_directory, count, keyword, casesens, i+1)
+                data.append(current_data)
+    else:
+        data = [(final_input_bioc, output_directory, count, keyword, casesens, 1)]
+    now = datetime.now()
+    current_time = now.strftime("%d/%m/%Y, %H:%M:%S")
+    print(str(current_time) + str(' Process starting'))
+    with mp.Pool(par_core) as pool:
+        pool.starmap(run_ann_initialsteps, data)
+    now = datetime.now()
+    current_time = now.strftime("%d/%m/%Y, %H:%M:%S")
+    print(str(current_time) + str(' Process complete'))
