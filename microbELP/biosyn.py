@@ -467,8 +467,8 @@ def microbiome_biosyn_normalisation(to_normalise, candidates_number = 5, max_len
         dictionary, dict_sparse_embeds, dict_dense_embeds = cache_or_load_dictionary_ontology(biosyn, model_name_or_path, ontology)
 
     final_output = []
-    for i in range(len(input_list)):
-        original_mention = input_list[i]
+    for i in range(len(to_normalise)):
+        original_mention = to_normalise[i]
         # preprocess mention
         mention = TextPreprocess().run(original_mention)
         # embed mention
