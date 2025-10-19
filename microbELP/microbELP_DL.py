@@ -68,6 +68,7 @@ def microbELP_DL(input_directory, output_dir = './', normalisation = True):
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     _ = model.to(device)
     for z in range(len(final_input_bioc)):
+        print(f'Processing file {z+1} out of {len(final_input_bioc)}.')
         with open(final_input_bioc[z]) as f:
             d = json.load(f)
         total = 1
