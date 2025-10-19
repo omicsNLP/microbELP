@@ -25,3 +25,15 @@ from microbELP.microbiome_visualisation import phylogenetic_tree_microbiome
 from microbELP.microbiome_visualisation import comparative_phylogenetic_tree_microbiome
 from microbELP.microbiome_dictionary import load_saved_dictionary
 from microbELP.biosyn import microbiome_biosyn_normalisation
+from microbELP.biosyn import TextPreprocess
+from microbELP.biosyn import cache_or_load_dictionary
+from microbELP.biosyn import BioSyn
+from microbELP.dl_ner import microbiome_DL_ner
+from microbELP.dl_ner import create_sublists
+from microbELP.dl_ner import adjust_boudaries
+from microbELP.dl_ner import adjust_abbr
+from microbELP.dl_ner import adjust_wc
+from microbELP.dl_ner import adjust_spp
+from microbELP.dl_ner import remove_nested_annotations
+from microbELP.dl_ner import merge_overlapping_annotations
+from microbELP.microbELP_DL import microbELP_DL
