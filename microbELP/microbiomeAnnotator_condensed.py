@@ -83,6 +83,8 @@ class Annotator:
                                         for v in para['infons'].values():
                                                       if v == upperword or v == lowerword:
                                                            specific_section = True
+                                                      elif v == None:
+                                                            continue
                                                       elif upperword in v.split(" "):
                                                            specific_section = True
                                                       elif lowerword in v.split(" "):
