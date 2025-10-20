@@ -63,6 +63,8 @@ class parallel_Annotator:
                                     for v in para['infons'].values():
                                                   if v == upperword or v == lowerword:
                                                        specific_section = True
+                                                  elif v == None:
+                                                        continue
                                                   elif upperword in v.split(" "):
                                                        specific_section = True
                                                   elif lowerword in v.split(" "):
@@ -613,8 +615,8 @@ class parallel_Annotator:
                                     a_file = open(self.output_directory + folder + "/" +str(in_file.split("/")[-1]), "w")
                                     json.dump(data, a_file, indent = 4)
                                     a_file.close()
-            if i + 1 == len(PMC_files):
-                print(f"Process {self.process_number} finished annotating all its files")                     
+                    if i + 1 == len(PMC_files):
+                        print(f"Process {self.process_number} finished annotating all its files")                     
            
             
         def AddAnnotation(self, word, match, count, para, modifier, taxa_per_file, sentenceoffset, offsetoftext, strains, dict_data, duptxids, idinuse, needs_processing, base, annot_stopper):
