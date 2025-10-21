@@ -29,7 +29,11 @@ setuptools.setup(
     "scikit-learn>=1.5.0",
     "torch>=2.1.0",
     "transformers>=4.40.0",
-    "chardet"
+    "chardet",
+    "bs4",
+    "lxml",
+    "nltk",
+    "fuzzywuzzy"
     ],
     python_requires='>=3.9'
 )
