@@ -448,6 +448,8 @@ def microbiome_biosyn_normalisation(to_normalise, candidates_number = 5, max_len
         return None
     else:
         pass
+    if type(to_normalise) == str:
+        to_normalise = [to_normalise]
     
     model_name_or_path = 'omicsNLP/microbELP_NEN'
     
