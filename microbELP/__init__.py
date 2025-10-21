@@ -37,3 +37,4 @@ from microbELP.dl_ner import adjust_spp
 from microbELP.dl_ner import remove_nested_annotations
 from microbELP.dl_ner import merge_overlapping_annotations
 from microbELP.microbELP_DL import microbELP_DL
+from microbELP.pmcid_ac_generation import pmcid_to_microbiome
