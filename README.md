@@ -354,8 +354,6 @@ Parameters:
 - `ontology` (<class 'str'>, default=''): Path to a custom vocabulary text file in id||entity format. If left empty, the default curated NCBI Taxonomy vocabulary is used.
 - `save` (<class 'bool'>, default=False): If True, saves results to `microbiome_biosyn_normalisation_output.json` in the current directory.
 
----
-
 ### 🌳 Visualisation Module
 
 The library includes a visualisation module designed to generate phylogenetic trees of identified microbial taxa. This allows users to visually inspect the microbial composition of individual datasets or compare across different domains or study sections.
