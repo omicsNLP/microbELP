@@ -18,16 +18,22 @@ The system was developed to support large-scale microbiome curation and downstre
 ## 🔍 Overview
 
 The **microbELP** pipeline processes research articles encoded in **BioC JSON** format.  
-It automatically detects mentions of microbiome entities, covering *archaea*, *bacteria*, *fungi*, and attaches standardised taxonomy identifiers from NCBI.
+It automatically detects mentions of microbiome entities — covering *archaea*, *bacteria*, and *fungi* — and attaches standardised taxonomy identifiers from **NCBI**.
 
-Key features:
+### Key Features
 - **Automatic annotation** of microbiome mentions in BioC-formatted research articles.  
 - **Entity normalisation** to **NCBI Taxonomy IDs**, providing consistent reference identifiers.  
-- **Parallel processing:** the pipeline leverages multiprocessing to distribute workloads across multiple CPU cores, reducing runtime on large datasets.  
+- **Parallel processing:** leverages multiprocessing to distribute workloads across multiple CPU cores, reducing runtime on large datasets.  
 - **Visualisation module:** generates interactive and comparative **phylogenetic trees** to explore microbial diversity and overlap across studies or datasets.  
-- **Incremental annotation:** previously annotated files are skipped upon rerun.  
-- **Standalone normalisation function:** converts a microbial name string to an NCBI Taxonomy identifier.  
-- **Output in BioC JSON**, compatible with existing biomedical NLP pipelines. 
+- **Incremental annotation:** previously annotated files are automatically skipped on rerun.  
+- **Standalone normalisation functions:** convert microbial name strings to **NCBI Taxonomy identifiers**, now available for both **CPU (non–DL)** and **GPU (DL)** usage.  
+- **Standalone recognition function:** detect microbiome entities directly from **free text** using the **GPU (DL)** version.  
+- **Flexible pipelines:**  
+  - A **non–DL pipeline** optimised for **CPU** processing.  
+  - A **DL-based pipeline** optimised for **GPU** processing.  
+- **OA article support:** includes an automatic **PMCID downloader and converter**, transforming Open Access PubMed Central articles into **BioC JSON** format.  
+- **Output in BioC JSON**, ensuring full compatibility with existing biomedical NLP pipelines.  
+
 
 ---
 
@@ -59,7 +65,17 @@ The pipeline consists of the following main stages:
 
 ---
 
-## 📁 Input and Output Format
+## ⚙️ Installation
+
+MicrobELP has a number of dependencies on other Python packages; it is recommended to install it in an isolated environment.
+
+`git clone https://github.com/omicsNLP/microbELP.git`
+
+`pip install ./microbELP`
+
+---
+
+## 📁 Input and Output Format of the main functions (`microbELP`, `parallel_microbELP`, `microbELP_DL`)
 
 ### ↩️ Input  
 
@@ -111,21 +127,11 @@ A new directory (`microbELP_result/`) is created, containing the same files with
 
 ---
 
-## ⚙️ Installation
-
-MicrobELP has a number of dependencies on other Python packages; it is recommended to install it in an isolated environment.
-
-`git clone https://github.com/omicsNLP/microbELP.git`
-
-`pip install ./microbELP`
-
----
-
 ## 🚀 Usage
 
-### 🧰 Main pipeline
+### 🧰 Main pipeline - non–DL (CPU only)
 
-Run the pipeline on a folder of BioC files:
+Run the pipeline on a folder of BioC files with the name ending with `_bioc.json`:
 
 ```python
 from microbELP import microbELP
@@ -144,9 +150,122 @@ microbELP(
 )  
 ```
 
+The `output_directory` parameter lets you specify where to save the results. By default, output files are stored in the current working directory (`'./'`) under `'microbELP_result/'`.
+
+### 🧰 Main pipeline - DL (GPU only)
+
+Run the pipeline on a folder of BioC files with the name ending with `_bioc.json`:
+
+```python
+from microbELP import microbELP_DL
+
+microbELP_DL('$input_folder$') #type str
+```
+
+Optional arguments:
+
+```python 
+from microbELP import microbELP_DL
+
+microbELP_DL(
+	'$input_folder$', #type str
+	output_directory='$output_path$', #type str # The path to where the results should be saved. Default value is './'
+	normalisation = True # #type bool # If changed to False, will only perform NER instead of NER+NEN/EL. Default value is 'True'
+)  
+```
+
+The `output_directory` parameter lets you specify where to save the results. By default, output files are stored in the current working directory (`'./'`) under `'microbELP_DL_result/'`. The `normalisation` parameter lets you specify whether to perform Named Entity Normalisation / Entity Liking; when set to `False`, it only performs Named Entity Recognition.
+
+---
+
+### 🧾 PMCID retrieval and conversion to BioC
+
+Retrieve Open Access publications from PubMed Central and automatically convert them into **BioC JSON** format:
+
+```python
+from microbELP import pmcid_to_microbiome
+
+pmcid_to_microbiome(
+	'$path_PMCID_text_file$', #type str
+	'$email_address$' #type str
+)
+```
+
+It takes 2 mandatory parameters:
+
+- `pmcid_file` <class 'str'>: Path to a text file where each line contains a single PMCID.
+- `email` <class 'str'>: An email address required by the NCBI API for query identification.
+
+The function queries the NCBI API to retrieve all Open Access publications from the provided PMCID list and automatically converts them into BioC JSON format.
+
+Optional argument:
+
+```python
+pmcid_to_microbiome(
+	'$path_PMCID_text_file$', #type str
+	'$email_address$', #type str
+	output_directory = './'  #type str # Path to save the retrieved and converted files. Default is './'
+)
+```
+
+By default, all results are saved in a new directory named `'microbELP_PMCID_microbiome/'`, which contains two subfolders:
+
+- `PMCID_XML/` — raw XML files retrieved from NCBI.
+- `bioc/` — BioC-converted versions of the publications, ready for downstream processing with `microbELP`, `parallel_microbELP` or `microbELP_DL`.
+
+---
+
+### 🤖 Microbiome Entity Recognition (DL - GPU only)
+
+The package includes a standalone function for **Microbiome Entity Recognition** using a **DL** model optimised for **GPU** usage.
+
+```python
+from microbELP import microbiome_DL_ner
+
+input_text = 'The first microbiome I learned about is called Helicobacter pylori.' #type str or list of str
+print(microbiome_DL_ner(input_text))
+```
+
+Output:
+
+`[{'Entity': 'Helicobacter pylori', 'locations': {'offset': 47, 'length': 19}}]`
+
+If a match is found, the function returns a list of detected entities, each represented as a dictionary containing:
+
+- `Entity`: the recognised microbiome name
+- `locations`: the character offset and length of the entity within the text
+
+You can also provide a list of text strings as input for batch processing to reduce loading overhead:
+
+```python
+from microbELP import microbiome_DL_ner
+
+input_list = [
+    'The first microbiome I learned about is called Helicobacter pylori.',
+    'Then I learned about Eubacterium rectale.'
+]
+print(microbiome_DL_ner(input_list))
+```
+
+Output:
+
+```
+[
+    [{'Entity': 'Helicobacter pylori', 'locations': {'offset': 47, 'length': 19}}],
+    [{'Entity': 'Eubacterium rectale', 'locations': {'offset': 21, 'length': 19}}]
+]
+```
+
+Each element in the output list corresponds to one input text, containing its recognised microbiome entities and their text locations.
+
+---
+
 ### 🔗 Normalisation Utility
 
-The package includes a helper function for standalone microbial name normalisation:
+The package includes two helper functions for standalone **microbial name normalisation**, available for both **CPU (non–DL)** and **GPU (DL)** usage.
+
+
+#### 📜 Non–DL Normalisation (CPU only)
 
 ```python
 from microbELP import microbiome_normalisation
@@ -154,15 +273,88 @@ from microbELP import microbiome_normalisation
 microbiome_normalisation('Eubacterium rectale') #type str # Output: NCBI:txid39491
 ```
 
-If a match is found, it returns the NCBI Taxonomy identifier; otherwise `None`.
+If a match is found, it returns the **NCBI Taxonomy identifier**; otherwise `None`.
 
-For time efficiency, as loading the vocabulary is what requires the most amount of time, you can provide a list of strings as input and receive a list of dictionaries as output in the format of: `input = ['Eubacterium rectale', 'bacteria']`, `output = [{'Eubacterium rectale': 'NCBI:txid39491'}, {'bacteria': 'NCBI:txid2'}]`.
+For time efficiency (as loading the vocabulary requires the most time), you can provide a list of strings as input and receive a list of dictionaries as output in the format:
+```
+input = ['Eubacterium rectale', 'bacteria']
+output = [{'Eubacterium rectale': 'NCBI:txid39491'}, {'bacteria': 'NCBI:txid2'}]
+```
 
 ```python
 from microbELP import microbiome_normalisation
 
 microbiome_normalisation(['Eubacterium rectale', 'bacteria']) #type list # Output: [{'Eubacterium rectale': 'NCBI:txid39491'}, {'bacteria': 'NCBI:txid2'}]
 ```
+
+#### ⚡ DL Normalisation (GPU only)
+
+For deep learning–based name normalisation using the BioSyn model, the package provides the following function:
+
+```python
+from microbELP import microbiome_biosyn_normalisation
+
+input_list = ['bacteria', 'Eubacterium rectale', 'Helicobacter pylori'] # type list
+print(microbiome_biosyn_normalisation(input_list))
+```
+
+Output:
+```
+[
+  {'mention': 'bacteria', 'candidates': [
+    {'NCBI:txid2': 'bacteria'},
+    {'NCBI:txid2': 'Bacteria'},
+    {'NCBI:txid1869227': 'bacteria bacterium'},
+    {'NCBI:txid1869227': 'Bacteria bacterium'},
+    {'NCBI:txid1573883': 'bacterium associated'}
+  ]},
+  {'mention': 'Eubacterium rectale', 'candidates': [
+    {'NCBI:txid39491': 'eubacterium rectale'},
+    {'NCBI:txid39491': 'Eubacterium rectale'},
+    {'NCBI:txid39491': 'pseudobacterium rectale'},
+    {'NCBI:txid39491': 'Pseudobacterium rectale'},
+    {'NCBI:txid39491': 'e. rectale'}
+  ]},
+  {'mention': 'Helicobacter pylori', 'candidates': [
+    {'NCBI:txid210': 'Helicobacter pylori'},
+    {'NCBI:txid210': 'helicobacter pylori'},
+    {'NCBI:txid210': 'Campylobacter pylori'},
+    {'NCBI:txid210': 'campylobacter pylori'},
+    {'NCBI:txid210': 'campylobacter pyloridis'}
+  ]}
+]
+```
+
+This function supports both single strings and lists of microbiome mentions as input.
+
+```python
+from microbELP import microbiome_biosyn_normalisation
+
+input_text = 'Helicobacter pylori'
+print(microbiome_biosyn_normalisation(input_text))
+
+```
+
+Output:
+```
+[{'mention': 'Helicobacter pylori', 'candidates': [
+  {'NCBI:txid210': 'Helicobacter pylori'},
+  {'NCBI:txid210': 'helicobacter pylori'},
+  {'NCBI:txid210': 'Campylobacter pylori'},
+  {'NCBI:txid210': 'campylobacter pylori'},
+  {'NCBI:txid210': 'campylobacter pyloridis'}
+]}]
+```
+
+Parameters:
+
+- `to_normalise` <class 'str' or 'list['str']'>): Text or list of microbial names to normalise.
+- `candidates_number` (<class 'int'>, default=5): Number of top candidate matches to return (from most to least likely).
+- `max_lenght` (<class 'int'>, default=25): Maximum token length allowed for the model input.
+- `ontology` (<class 'str'>, default=''): Path to a custom vocabulary text file in id||entity format. If left empty, the default curated NCBI Taxonomy vocabulary is used.
+- `save` (<class 'bool'>, default=False): If True, saves results to `microbiome_biosyn_normalisation_output.json` in the current directory.
+
+---
 
 ### 🌳 Visualisation Module
 
@@ -236,7 +428,7 @@ This function generates four comparative images:
 
 To reduce processing time, microbELP leverages Python’s `multiprocessing` library. This allows the workload to be distributed across multiple CPU cores, significantly speeding up the overall execution of the pipeline.
 
-### 🧰 Main pipeline
+### 🧰 Main pipeline - non–DL (CPU only)
 
 Run the pipeline on a folder containing BioC files:
 
@@ -305,6 +497,30 @@ If you find this repository useful, please consider giving a star ⭐ and citati
 	journal = {bioRxiv}
 }
 ```
+
+If you used `microbiome_biosyn_normalisation` or `microbELP_DL` with the normalisation module please also cite 📝:
+
+```bibtex
+@inproceedings{sung2020biomedical,
+    title = {Biomedical Entity Representations with Synonym Marginalization},
+    author = {Sung, Mujeen and Jeon, Hwisang and Lee, Jinhyuk and Kang, Jaewoo},
+    booktitle = {ACL},
+    year = {2020}
+}
+```
+
+If you used `pmcid_to_microbiome` please also cite 📝:
+```bibtex
+@article {10.3389/fdgth.2022.788124,
+author = {Beck, Tim  and Shorter, Tom  and Hu, Yan  and Li, Zhuoyu  and Sun, Shujian  and Popovici, Casiana M.  and McQuibban, Nicholas A. R.  and Makraduli, Filip  and Yeung, Cheng S.  and Rowlands, Thomas  and Posma, Joram M. },       
+title = {Auto-CORPus: A Natural Language Processing Tool for Standardizing and Reusing Biomedical Literature},      
+journal = {Frontiers in Digital Health},    
+volume = {Volume 4 - 2022},
+year = {2022},
+url = {https://www.frontiersin.org/journals/digital-health/articles/10.3389/fdgth.2022.788124},
+doi = {10.3389/fdgth.2022.788124}
+```
+
 
 ---
 
