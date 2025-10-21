@@ -353,6 +353,8 @@ Parameters:
 - `max_lenght` (<class 'int'>, default=25): Maximum token length allowed for the model input.
 - `ontology` (<class 'str'>, default=''): Path to a custom vocabulary text file in id||entity format. If left empty, the default curated NCBI Taxonomy vocabulary is used.
 - `save` (<class 'bool'>, default=False): If True, saves results to `microbiome_biosyn_normalisation_output.json` in the current directory.
+  
+---
 
 ### 🌳 Visualisation Module
 
