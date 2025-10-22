@@ -16,7 +16,7 @@ from datetime import datetime
 import torch
 from transformers import AutoTokenizer, AutoModelForTokenClassification
 
-def microbELP_DL(input_directory, output_dir = './', normalisation = True):
+def microbELP_DL(input_directory, output_dir = './', cpu = False, normalisation = True):
     if type(input_directory) != str:
         print('Parameter "input_directory": Input error, this function only accepts a string directory with BioC files to be annotated with "*_bioc.json", e.g. for "./bioc/*_bioc.json", requires "./bioc" as input.')
         return None
@@ -29,6 +29,11 @@ def microbELP_DL(input_directory, output_dir = './', normalisation = True):
         pass
     if type(normalisation) != bool:
         print('Parameter "normalisation": Input error, this function only accepts "True" or "False", if "True", the entities are normalised and added to the annotations.')
+        return None
+    else:
+        pass
+    if not isinstance(cpu, bool):
+        print('Parameter "cpu": Input error, this parameter only accepts a boolean as value. If "True" the code runs using the CPU otherwise, it will try to indentify if a GPU is available and will run on CPU if not.')
         return None
     else:
         pass
@@ -54,18 +59,34 @@ def microbELP_DL(input_directory, output_dir = './', normalisation = True):
     if len(final_input_bioc) == 0:
         print('No new document to annotate.')
         return None
+
+    if cpu == True:
+        device_used = False
+        print('Running the code using the CPU.')
+    else:
+        triggered_gpu = torch.cuda.is_available()
+        if triggered_gpu:
+            print('GPU detected, running the code using the GPU.')
+            device_used = True
+        else:
+             print('GPU not detected, running the code using the CPU.')
+             device_used = False
+
     if normalisation:
         model_name_or_path = 'omicsNLP/microbELP_NEN'
         biosyn = BioSyn(
                     max_length=25,
-                    use_cuda=True
+                    use_cuda=device_used
                 )
         biosyn.load_model(model_name_or_path=model_name_or_path)
         dictionary, dict_sparse_embeds, dict_dense_embeds = cache_or_load_dictionary(biosyn, model_name_or_path)
     model_name = 'omicsNLP/microbELP_NER'
     tokenizer = AutoTokenizer.from_pretrained(model_name)
     model = AutoModelForTokenClassification.from_pretrained(model_name)
-    device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+    if device_used == False:
+        device = torch.device("cpu")
+    else:
+        device = torch.device("cuda")
     _ = model.to(device)
     for z in range(len(final_input_bioc)):
         print(f'Processing file {z+1} out of {len(final_input_bioc)}.')
