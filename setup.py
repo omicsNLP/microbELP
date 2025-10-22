@@ -33,7 +33,8 @@ setuptools.setup(
     "bs4",
     "lxml",
     "nltk",
-    "fuzzywuzzy"
+    "fuzzywuzzy",
+    "python-Levenshtein"
     ],
     python_requires='>=3.9'
 )
