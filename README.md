@@ -26,11 +26,11 @@ It automatically detects mentions of microbiome entities — covering *archaea*,
 - **Parallel processing:** leverages multiprocessing to distribute workloads across multiple CPU cores, reducing runtime on large datasets.  
 - **Visualisation module:** generates interactive and comparative **phylogenetic trees** to explore microbial diversity and overlap across studies or datasets.  
 - **Incremental annotation:** previously annotated files are automatically skipped on rerun.  
-- **Standalone normalisation functions:** convert microbial name strings to **NCBI Taxonomy identifiers**, now available for both **CPU (non–DL)** and **GPU (DL)** usage.  
-- **Standalone recognition function:** detect microbiome entities directly from **free text** using the **GPU (DL)** version.  
+- **Standalone normalisation functions:** convert microbial name strings to **NCBI Taxonomy identifiers**, now available for both **CPU** and **GPU** usage.  
+- **Standalone recognition function:** detect microbiome entities directly from **free text** using the **DL** version.  
 - **Flexible pipelines:**  
   - A **non–DL pipeline** optimised for **CPU** processing.  
-  - A **DL-based pipeline** optimised for **GPU** processing.  
+  - A **DL-based pipeline** optimised for **CPU** and **GPU** processing.  
 - **OA article support:** includes an automatic **PMCID downloader and converter**, transforming Open Access PubMed Central articles into **BioC JSON** format.  
 - **Output in BioC JSON**, ensuring full compatibility with existing biomedical NLP pipelines.  
 
@@ -75,7 +75,7 @@ MicrobELP has a number of dependencies on other Python packages; it is recommend
 
 ---
 
-## 📁 Input and Output Format of the main functions (`microbELP`, `parallel_microbELP`, `microbELP_DL`)
+## 📁 Input and Output Format of the main functions (microbELP, parallel_microbELP, microbELP_DL)
 
 ### ↩️ Input  
 
@@ -129,7 +129,7 @@ A new directory (`microbELP_result/`) is created, containing the same files with
 
 ## 🚀 Usage
 
-### 🧰 Main pipeline - non–DL (CPU only)
+### 🧰 Main pipeline - non–DL
 
 Run the pipeline on a folder of BioC files with the name ending with `_bioc.json`:
 
@@ -152,7 +152,7 @@ microbELP(
 
 The `output_directory` parameter lets you specify where to save the results. By default, output files are stored in the current working directory (`'./'`) under `'microbELP_result/'`.
 
-### 🧰 Main pipeline - DL (GPU only)
+### 🧰 Main pipeline - DL
 
 Run the pipeline on a folder of BioC files with the name ending with `_bioc.json`:
 
@@ -170,11 +170,12 @@ from microbELP import microbELP_DL
 microbELP_DL(
 	'$input_folder$', #type str
 	output_directory='$output_path$', #type str # The path to where the results should be saved. Default value is './'
+	cpu = False, # type bool # If True, the code runs on CPU, otherwise it will use a GPU if any available.
 	normalisation = True # #type bool # If changed to False, will only perform NER instead of NER+NEN/EL. Default value is 'True'
 )  
 ```
 
-The `output_directory` parameter lets you specify where to save the results. By default, output files are stored in the current working directory (`'./'`) under `'microbELP_DL_result/'`. The `normalisation` parameter lets you specify whether to perform Named Entity Normalisation / Entity Liking; when set to `False`, it only performs Named Entity Recognition.
+The `output_directory` parameter lets you specify where to save the results. By default, output files are stored in the current working directory (`'./'`) under `'microbELP_DL_result/'`. The `cpu` parameter lets you specify whether to perform Named Entity Normalisation / Entity Linking; using the CPU or the GPU. If using the CPU, the longest part is to load the vocabulary as opposed to a much faster loading on the GPU. The `normalisation` parameter lets you specify whether to perform Named Entity Normalisation / Entity Liking; when set to `False`, it only performs Named Entity Recognition.
 
 ---
 
@@ -215,9 +216,9 @@ By default, all results are saved in a new directory named `'microbELP_PMCID_mic
 
 ---
 
-### 🤖 Microbiome Entity Recognition (DL - GPU only)
+### 🤖 Microbiome Entity Recognition (DL)
 
-The package includes a standalone function for **Microbiome Entity Recognition** using a **DL** model optimised for **GPU** usage.
+The package includes a standalone function for **Microbiome Entity Recognition** using a **DL** model optimised for both **CPU** and **GPU**.
 
 ```python
 from microbELP import microbiome_DL_ner
@@ -256,16 +257,18 @@ Output:
 ]
 ```
 
-Each element in the output list corresponds to one input text, containing its recognised microbiome entities and their text locations.
+Each element in the output list corresponds to one input text, containing its recognised microbiome entities and their text locations. 
+
+There is one optional parameter to this function called `cpu` <type 'bool'>, the default value is False, i.e. runs on a GPU if any available. If you want to force the usage of the CPU, you will need to use `microbiome_DL_ner(input_list, cpu = True)`.
 
 ---
 
 ### 🔗 Normalisation Utility
 
-The package includes two helper functions for standalone **microbial name normalisation**, available for both **CPU (non–DL)** and **GPU (DL)** usage.
+The package includes two helper functions for standalone **microbial name normalisation**, available for both **non–DL** and **DL** usage.
 
 
-#### 📜 Non–DL Normalisation (CPU only)
+#### 📜 Non–DL Normalisation 
 
 ```python
 from microbELP import microbiome_normalisation
@@ -287,7 +290,7 @@ from microbELP import microbiome_normalisation
 microbiome_normalisation(['Eubacterium rectale', 'bacteria']) #type list # Output: [{'Eubacterium rectale': 'NCBI:txid39491'}, {'bacteria': 'NCBI:txid2'}]
 ```
 
-#### ⚡ DL Normalisation (GPU only)
+#### ⚡ DL Normalisation 
 
 For deep learning–based name normalisation using the BioSyn model, the package provides the following function:
 
@@ -349,6 +352,7 @@ Output:
 Parameters:
 
 - `to_normalise` <class 'str' or 'list['str']'>): Text or list of microbial names to normalise.
+- `cpu` (<class 'bool'>, default=False): When set to `False`, it will run on any GPU available. The longest part for inference on the CPU is to load the vocabulary used to predict the identifier.
 - `candidates_number` (<class 'int'>, default=5): Number of top candidate matches to return (from most to least likely).
 - `max_lenght` (<class 'int'>, default=25): Maximum token length allowed for the model input.
 - `ontology` (<class 'str'>, default=''): Path to a custom vocabulary text file in id||entity format. If left empty, the default curated NCBI Taxonomy vocabulary is used.
