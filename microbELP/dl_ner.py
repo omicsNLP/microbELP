@@ -247,12 +247,26 @@ def merge_overlapping_annotations(text, annotations):
             merged.append(ann)
     return merged
 
-def microbiome_DL_ner(input_text):
+def microbiome_DL_ner(input_text, cpu = False):
     if type(input_text) == str:
         model_name = 'omicsNLP/microbELP_NER'
         tokenizer = AutoTokenizer.from_pretrained(model_name)
         model = AutoModelForTokenClassification.from_pretrained(model_name)
-        device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+        if not isinstance(cpu, bool):
+            print('Parameter "cpu": Input error, this parameter only accepts a boolean as value. If "True" the code runs using the CPU otherwise, it will try to indentify if a GPU is available and will run on CPU if not.')
+            return None
+        else:
+            if cpu == True:
+                device = torch.device("cpu")
+                print('Running the code using the CPU.')
+            else:
+                triggered_gpu = torch.cuda.is_available()
+                if triggered_gpu:
+                    device = torch.device("cuda")
+                    print('GPU detected, running the code using the GPU.')
+                else:
+                    device = torch.device("cpu")
+                    print('GPU not detected, running the code using the CPU.')
         _ = model.to(device)
         sentence_text = [input_text.replace('\n', ' ')]
         
@@ -326,7 +340,21 @@ def microbiome_DL_ner(input_text):
         model_name = 'omicsNLP/microbELP_NER'
         tokenizer = AutoTokenizer.from_pretrained(model_name)
         model = AutoModelForTokenClassification.from_pretrained(model_name)
-        device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+        if not isinstance(cpu, bool):
+            print('Parameter "cpu": Input error, this parameter only accepts a boolean as value. If "True" the code runs using the CPU otherwise, it will try to indentify if a GPU is available and will run on CPU if not.')
+            return None
+        else:
+            if cpu == True:
+                device = torch.device("cpu")
+                print('Running the code using the CPU.')
+            else:
+                triggered_gpu = torch.cuda.is_available()
+                if triggered_gpu:
+                    device = torch.device("cuda")
+                    print('GPU detected, running the code using the GPU.')
+                else:
+                    device = torch.device("cpu")
+                    print('GPU not detected, running the code using the CPU.')
         _ = model.to(device)
         final_annotation_list = []
         for kui in range(len(input_text)):
