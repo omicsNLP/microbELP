@@ -173,8 +173,10 @@ class BioSyn(object):
         if not os.path.isfile(sparse_weight_path):
             # download from huggingface hub and cache it
             sparse_weight_path = hf_hub_download(repo_id=model_name_or_path, filename="sparse_weight.pt")
-
-        self.sparse_weight = torch.load(sparse_weight_path, weights_only=True)
+        if self.use_cuda:
+            self.sparse_weight = torch.load(sparse_weight_path, weights_only=True)
+        else:
+            self.sparse_weight = torch.load(sparse_weight_path, map_location='cpu', weights_only=True)
 
         return self.sparse_weight
 
@@ -422,7 +424,7 @@ def cache_or_load_dictionary_ontology(biosyn, model_name_or_path, dictionary_pat
 
     return dictionary, dict_sparse_embeds, dict_dense_embeds
 
-def microbiome_biosyn_normalisation(to_normalise, candidates_number = 5, max_lenght = 25, ontology = '', save = False):
+def microbiome_biosyn_normalisation(to_normalise, cpu = False, candidates_number = 5, max_lenght = 25, ontology = '', save = False):
     if not isinstance(to_normalise, (str, list)):
         print('Parameter "to_normalise": Input error, this function only accepts a string or list of strings representing microbiome entities to be normalised.')
         return None
@@ -448,22 +450,39 @@ def microbiome_biosyn_normalisation(to_normalise, candidates_number = 5, max_len
         return None
     else:
         pass
+    if not isinstance(cpu, bool):
+        print('Parameter "cpu": Input error, this parameter only accepts a boolean as value. If "True" the code runs using the CPU otherwise, it will try to indentify if a GPU is available and will run on CPU if not.')
+        return None
+    else:
+        pass
     if type(to_normalise) == str:
         to_normalise = [to_normalise]
     
     model_name_or_path = 'omicsNLP/microbELP_NEN'
+
+    if cpu == True:
+        device = False
+        print('Running the code using the CPU.')
+    else:
+        triggered_gpu = torch.cuda.is_available()
+        if triggered_gpu:
+            print('GPU detected, running the code using the GPU.')
+            device = True
+        else:
+             print('GPU not detected, running the code using the CPU.')
+             device = False
     
     if ontology == '':
         biosyn = BioSyn(
                     max_length=max_lenght,
-                    use_cuda=True
+                    use_cuda=device
                 )
         biosyn.load_model(model_name_or_path=model_name_or_path)
         dictionary, dict_sparse_embeds, dict_dense_embeds = cache_or_load_dictionary(biosyn, model_name_or_path)
     else:
         biosyn = BioSyn(
                     max_length=max_lenght,
-                    use_cuda=True
+                    use_cuda=device
                 )
         biosyn.load_model(model_name_or_path=model_name_or_path)
         dictionary, dict_sparse_embeds, dict_dense_embeds = cache_or_load_dictionary_ontology(biosyn, model_name_or_path, ontology)
@@ -502,7 +521,6 @@ def microbiome_biosyn_normalisation(to_normalise, candidates_number = 5, max_len
             "candidates": candidates
         }
         final_output.append(result)
-
     if save:
         with open('./microbiome_biosyn_normalisation_output.json', 'w', encoding='utf-8') as f:
             f.write('[\n')
