@@ -175,7 +175,7 @@ microbELP_DL(
 )  
 ```
 
-The `output_directory` parameter lets you specify where to save the results. By default, output files are stored in the current working directory (`'./'`) under `'microbELP_DL_result/'`. The `cpu` parameter lets you specify whether to perform Named Entity Normalisation / Entity Linking; using the CPU or the GPU. If using the CPU, the longest part is to load the vocabulary as opposed to a much faster loading on the GPU. The `normalisation` parameter lets you specify whether to perform Named Entity Normalisation / Entity Liking; when set to `False`, it only performs Named Entity Recognition.
+The `output_directory` parameter lets you specify where to save the results. By default, output files are stored in the current working directory (`'./'`) under `'microbELP_DL_result/'`. The `cpu` parameter lets you specify whether to perform Named Entity Normalisation / Entity Linking; using the CPU or the GPU. If using the CPU, the longest part is to load the vocabulary as opposed to a much faster loading on the GPU. The `normalisation` parameter lets you specify whether to perform Named Entity Normalisation / Entity Linking; when set to `False`, it only performs Named Entity Recognition.
 
 ---
 
