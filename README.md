@@ -259,7 +259,7 @@ Output:
 
 Each element in the output list corresponds to one input text, containing its recognised microbiome entities and their text locations. 
 
-There is one optional parameter to this function called `cpu` <type 'bool'>, the default value is False, i.e. runs on a GPU if any available. If you want to force the usage of the CPU, you will need to use `microbiome_DL_ner(input_list, cpu = True)`.
+There is one optional parameter to this function called `cpu` <type 'bool'>, the default value is False, i.e. runs on a GPU if any are available. If you want to force the usage of the CPU, you will need to use `microbiome_DL_ner(input_list, cpu = True)`.
 
 ---
 
