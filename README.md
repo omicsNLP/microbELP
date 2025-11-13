@@ -18,7 +18,7 @@ The system was developed to support large-scale microbiome curation and downstre
 
 ## 📚 Table of Contents
 
-- [🔍 Overview](#-overview)
+- [🔍 Overview](#overview)
 
 ---
 
