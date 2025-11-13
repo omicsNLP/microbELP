@@ -20,7 +20,7 @@ The system was developed to support large-scale microbiome curation and downstre
 
 - [🔍 Overview](#-overview)
 - [🧩 Pipeline Overview](#-pipeline-overview)
-- [⚙️ Installation](#-installation)
+- [⚙️ Installation](https://github.com/omicsNLP/microbELP/tree/main?tab=readme-ov-file#%EF%B8%8F-installation)
 - [📁 Input and Output Format of the main functions (microbELP, parallel_microbELP, microbELP_DL)](https://github.com/omicsNLP/microbELP/tree/main?tab=readme-ov-file#-input-and-output-format-of-the-main-functions-microbelp-parallel_microbelp-microbelp_dl)
 - [🚀 Usage](#-usage)
 - [🧾 PMCID retrieval and conversion to BioC](https://github.com/omicsNLP/microbELP/tree/main?tab=readme-ov-file#-pmcid-retrieval-and-conversion-to-bioc)
@@ -32,7 +32,7 @@ The system was developed to support large-scale microbiome curation and downstre
 - [🤝 Acknowledgements](#-acknowledgements)
 - [📝 Citing](#-citing)
 - [👥 Code Contributors](#-code-contributors)
-- [🏷️ Version](#-version)
+- [🏷️ Version](https://github.com/omicsNLP/microbELP/tree/main?tab=readme-ov-file#%EF%B8%8F-version)
 
 ---
 
