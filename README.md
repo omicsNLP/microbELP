@@ -18,7 +18,21 @@ The system was developed to support large-scale microbiome curation and downstre
 
 ## 📚 Table of Contents
 
-- [🔍 Overview](#overview)
+- [🔍 Overview](#-overview)
+- [🧩 Pipeline Overview](#-pipeline-overview)
+- [⚙️ Installation](#-installation)
+- [📁 Input and Output Format of the main functions (microbELP, parallel_microbELP, microbELP_DL)](https://github.com/omicsNLP/microbELP/tree/main?tab=readme-ov-file#-input-and-output-format-of-the-main-functions-microbelp-parallel_microbelp-microbelp_dl)
+- [🚀 Usage](#-usage)
+- [🧾 PMCID retrieval and conversion to BioC](https://github.com/omicsNLP/microbELP/tree/main?tab=readme-ov-file#-pmcid-retrieval-and-conversion-to-bioc)
+- [🤖 Microbiome Entity Recognition (DL)](https://github.com/omicsNLP/microbELP/tree/main?tab=readme-ov-file#-microbiome-entity-recognition-dl)
+- [🔗 Normalisation Utility](#-normalisation-utility)
+- [🌳 Visualisation Module](#-visualisation-module)
+- [🐧 Linux / 🍎 macOS / 💠 Cygwin (Linux-like on Windows)](https://github.com/omicsNLP/microbELP/tree/main?tab=readme-ov-file#-linux---macos---cygwin-linux-like-on-windows)
+- [⚠️ Important - Please Read!](https://github.com/omicsNLP/microbELP/tree/main?tab=readme-ov-file#%EF%B8%8F-important---please-read)
+- [🤝 Acknowledgements](#-acknowledgements)
+- [📝 Citing](#-citing)
+- [👥 Code Contributors](#-code-contributors)
+- [🏷️ Version](#-version)
 
 ---
 
