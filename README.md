@@ -84,12 +84,12 @@ The pipeline consists of the following main stages:
    - Each detected entity is mapped to an NCBI Taxonomy identifier using curated lexical resources.  
 
 4. **Output generation**  
-   - Annotated BioC JSON files are written to a new output directory called `'microbELP_result/'`.  
+   - Annotated BioC JSON files are written to a new output directory called `'microbELP_result/'` or `'microbELP_DL_result/'`.  
    - Each annotation includes:
      - The **text span** of the entity  
      - The **type** (e.g. `bacteria_species`)  
      - The **NCBI identifier**  
-     - The **parent taxonomic identifier** (if available)  
+     - The **parent taxonomic identifier** (if available) (only for the non-DL)
      - Metadata: annotator name, date, and annotation ID  
 
 5. **Incremental updates**  
