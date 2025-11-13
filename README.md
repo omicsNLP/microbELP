@@ -503,6 +503,7 @@ The `output_directory` parameter lets you specify where to save the results. By 
 |:-----:|:---:|
 | Paper | [![DOI:10.1101/2021.01.08.425887](http://img.shields.io/badge/DOI-10.1101.2025.08.29.671515-BE2536.svg)](https://doi.org/10.1101/2025.08.29.671515) |
 | Training data | [![DOI:10.5281/zenodo.17305411](http://img.shields.io/badge/DOI-10.5281/zenodo.17305411-3382C4.svg)](https://doi.org/10.5281/zenodo.17305411) |
+| Unannotated test data | [![DOI:10.5281/zenodo.17305411](http://img.shields.io/badge/DOI-10.5281/zenodo.17305411-3382C4.svg)](https://doi.org/10.5281/zenodo.17305411) |
 | Visualisation data | [![DOI:10.5281/zenodo.17288827](http://img.shields.io/badge/DOI-10.5281/zenodo.17288827-3382C4.svg)](https://doi.org/10.5281/zenodo.17288827) |
 | NER model | [![Hugging Face Models](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-microbELP_NER-FFD21E)](https://huggingface.co/omicsNLP/microbELP_NER) |
 | NEN model | [![Hugging Face Models](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-microbELP_NEN-FFD21E)](https://huggingface.co/omicsNLP/microbELP_NEN) |
