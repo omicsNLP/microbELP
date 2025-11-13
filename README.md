@@ -479,9 +479,9 @@ and the raw file formats were then standardised to BioC using [Auto-CORPus](http
 The original weights before fine-tuning for named entity recognition and entity linking were obtained from 
 [dmis-lab/biobert-base-cased-v1.1](https://huggingface.co/dmis-lab/biobert-base-cased-v1.1) 
 <a href="https://huggingface.co/dmis-lab/biobert-base-cased-v1.1"><img src="https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-biobert-FFD21E" style="vertical-align:middle;"/></a>.
-Finally, the entity linking fine-tuning and inference scripts were obtained and modified from 
+The entity linking fine-tuning and inference scripts were obtained and modified from 
 [BioSyn](https://github.com/dmis-lab/BioSyn) 
-<a href="https://github.com/dmis-lab/BioSyn"><img src="https://img.shields.io/github/stars/dmis-lab/BioSyn.svg?logo=github&label=Stars" style="vertical-align:middle;"/></a>.
+<a href="https://github.com/dmis-lab/BioSyn"><img src="https://img.shields.io/github/stars/dmis-lab/BioSyn.svg?logo=github&label=Stars" style="vertical-align:middle;"/></a>. Finally, thank you to [Adrien Pavão](https://mlchallenges.com/) for answering all our questions regarding setting up our benchmarks on [Codabench](https://www.codabench.org/). 
 
 ---
 
