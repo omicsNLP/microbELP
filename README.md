@@ -16,6 +16,12 @@ The system was developed to support large-scale microbiome curation and downstre
 
 ---
 
+## 📚 Table of Contents
+
+- [🔍 Overview](#-overview)
+
+---
+
 ## 🔍 Overview
 
 The **microbELP** pipeline processes research articles encoded in **BioC JSON** format.  
