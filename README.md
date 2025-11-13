@@ -509,8 +509,10 @@ The `output_directory` parameter lets you specify where to save the results. By 
 | NEN model | [![Hugging Face Models](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-microbELP_NEN-FFD21E)](https://huggingface.co/omicsNLP/microbELP_NEN) |
 | Test data on Codabench for NER | [![Codabench](http://img.shields.io/badge/Codabench-microbELP_benchmark_NER-2C3F4C.svg)](https://www.codabench.org/competitions/10913/) |
 | Test data on Codabench for NER+EL | [![Codabench](http://img.shields.io/badge/Codabench-microbELP_benchmark_NER_EL-2C3F4C.svg)](https://www.codabench.org/competitions/11581) |
-| Get started on Colab ||
-| Get started with .ipynb GitHub ||
+| Get started  ||
+| Get started with NER |[![Open in Colab][https://colab.research.google.com/assets/colab-badge.svg]][https://colab.research.google.com/drive/1QSFKzq5qJQDhgIoGdoCRqaiGBTJjuNuF?usp=sharing]|
+| Get started with NEN ||
+| Get started with Visualisation |[![Open in Colab][https://colab.research.google.com/assets/colab-badge.svg]][https://colab.research.google.com/drive/1CwJ0ZkZnag-LaPTL0ytzPCERuo4E62d_?usp=sharing]|
 
 </div>
 
