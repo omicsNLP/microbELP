@@ -10,7 +10,7 @@
 # 🦠 microbELP
 
 **microbELP** is a text mining pipeline for automatic recognition and normalisation of microbiome-related entities in biomedical literature.  
-It identifies microbial mentions (excluding viruses) in full-text scientific articles and links them to the **[NCBI Taxonomy](https://www.ncbi.nlm.nih.gov/taxonomy)** identifiers.  
+It identifies microbial mentions (excluding viruses) in full-text scientific articles and links them to their **[NCBI Taxonomy](https://www.ncbi.nlm.nih.gov/taxonomy)** identifiers.  
 
 The system was developed to support large-scale microbiome curation and downstream text mining tasks by providing consistent and standardised microbial annotations in BioC-formatted JSON files (from [Auto-CORPus](https://github.com/omicsNLP/Auto-CORPus)).
 
