@@ -37,6 +37,7 @@ The system was developed to support large-scale microbiome curation and downstre
   - [🌴 Comparative Phylogenetic Tree](#-comparative-phylogenetic-tree)
 - [🐧 Linux / 🍎 macOS / 💠 Cygwin (Linux-like on Windows)](#-linux---macos---cygwin-linux-like-on-windows)
   - [🧰 Main pipeline - non–DL (CPU only)](#-main-pipeline---nondl-cpu-only)
+- [🌍 Ecosystem](#-ecosystem)
 - [⚠️ Important - Please Read!](#️-important---please-read)
 - [🤝 Acknowledgements](#-acknowledgements)
 - [📝 Citing](#-citing)
@@ -491,6 +492,26 @@ if __name__ == "__main__":
 ```
 
 The `output_directory` parameter lets you specify where to save the results. By default, output files are stored in the current working directory (`'./'`) under `'microbELP_result/'`.
+
+---
+
+## 🌍 Ecosystem
+
+<div align="center">
+
+| Type | Resource |
+|:-----:|:---:|
+| Paper | [![DOI:10.1101/2021.01.08.425887](http://img.shields.io/badge/DOI-10.1101.2025.08.29.671515-BE2536.svg)](https://doi.org/10.1101/2025.08.29.671515) |
+| Training data | [![DOI:10.5281/zenodo.17305411](http://img.shields.io/badge/DOI-10.5281/zenodo.17305411-3382C4.svg)](https://doi.org/10.5281/zenodo.17305411) |
+| Visualisation data | [![DOI:10.5281/zenodo.17288827](http://img.shields.io/badge/DOI-10.5281/zenodo.17288827-3382C4.svg)](https://doi.org/10.5281/zenodo.17288827) |
+| NER model | [![Hugging Face Models](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-microbELP_NER-FFD21E)](https://huggingface.co/omicsNLP/microbELP_NER) |
+| NEN model | [![Hugging Face Models](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-microbELP_NEN-FFD21E)](https://huggingface.co/omicsNLP/microbELP_NEN) |
+| Test data on Codabench for NER | [![Codabench](http://img.shields.io/badge/Codabench-microbELP_benchmark_NER-2C3F4C.svg)](https://www.codabench.org/competitions/10913/) |
+| Test data on Codabench for NER+EL | [![Codabench](http://img.shields.io/badge/Codabench-microbELP_benchmark_NER_EL-2C3F4C.svg)](https://www.codabench.org/competitions/11581) |
+| Get started on Colab ||
+| Get started with .ipynb GitHub ||
+
+</div>
 
 ---
 
