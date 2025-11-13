@@ -33,7 +33,7 @@ The system was developed to support large-scale microbiome curation and downstre
   - [📜 Non–DL Normalisation](#-nondl-normalisation)
   - [⚡ DL Normalisation](#-dl-normalisation)
 - [🌳 Visualisation Module](#-visualisation-module)
-- [🐧 Linux / 🍎 macOS / 💠 Cygwin (Linux-like on Windows)](#️-linux-macos-cygwin-linux-like-on-windows-)
+- [🐧 Linux / 🍎 macOS / 💠 Cygwin (Linux-like on Windows)](#-linux---macos---cygwin-linux-like-on-windows)
   - [🧰 Main pipeline - non–DL (CPU only)](#-main-pipeline---nondl-cpu-only)
 - [⚠️ Important - Please Read!](#️-important---please-read)
 - [🤝 Acknowledgements](#-acknowledgements)
@@ -393,7 +393,7 @@ Parameters:
 
 The library includes a visualisation module designed to generate phylogenetic trees of identified microbial taxa. This allows users to visually inspect the microbial composition of individual datasets or compare across different domains or study sections.
 
-#### Single Phylogenetic Tree
+#### 🌲 Single Phylogenetic Tree
 
 To generate a single phylogenetic tree from the output of the pipeline or from a list of NCBI Taxonomy identifiers:
 
@@ -421,7 +421,7 @@ Parameters:
 
 This function produces a phylogenetic tree based on the counts of microbial taxa found in the provided dataset.
 
-#### Comparative Phylogenetic Tree
+#### 🌴 Comparative Phylogenetic Tree
 
 To compare microbial profiles between two datasets or domains:
 
