@@ -33,6 +33,8 @@ The system was developed to support large-scale microbiome curation and downstre
   - [📜 Non–DL Normalisation](#-nondl-normalisation)
   - [⚡ DL Normalisation](#-dl-normalisation)
 - [🌳 Visualisation Module](#-visualisation-module)
+  - [🌲 Single Phylogenetic Tree](#-single-phylogenetic-tree)
+  - [🌴 Comparative Phylogenetic Tree](#-comparative-phylogenetic-tree)
 - [🐧 Linux / 🍎 macOS / 💠 Cygwin (Linux-like on Windows)](#-linux---macos---cygwin-linux-like-on-windows)
   - [🧰 Main pipeline - non–DL (CPU only)](#-main-pipeline---nondl-cpu-only)
 - [⚠️ Important - Please Read!](#️-important---please-read)
