@@ -42,7 +42,7 @@ The system was developed to support large-scale microbiome curation and downstre
 - [🤝 Acknowledgements](#-acknowledgements)
 - [📝 Citing](#-citing)
 - [👥 Code Contributors](#-code-contributors)
-- [🏷️ Version](#️-version)
+- [🏷️ Version History](#️-version-history)
 
 
 ---
@@ -624,7 +624,7 @@ doi = {10.3389/fdgth.2022.788124}
 
 ---
 
-## 🏷️ Version
+## 🏷️ Version History
 
 ### Version 0.2.0
 -> First public release.
