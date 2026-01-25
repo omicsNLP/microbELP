@@ -2673,9 +2673,13 @@ def pmcid_to_microbiome(pmcid_list, email, output_directory = './'):
         print('Retrieving file: ' + str(i+1) + ' out of ' + str(total) + ' from the NCBI API.')
         r_d, r = get_request(final_data[i].replace('PMC', ''), http, 'https://www.ncbi.nlm.nih.gov/pmc/oai/oai.cgi?verb=GetRecord&identifier=oai:pubmedcentral.nih.gov:', headers,)
         if r_d['status_code'] == 429:
-                print('"Too many requests error [429]" received')
-                print('Risk of IP address block: stopping script')
-                return None
+            print('"Too many requests error [429]" received')
+            print('Risk of IP address block: stopping script')
+            return stop_the_script
+        elif r_d["error"] == 429:
+            print('"Too many requests error [429]" received')
+            print('Risk of IP address block: stopping script')
+            return stop_the_script
         # code 200 everything works correctly
         elif r_d['status_code'] == 200:
             f = open(final_output + f"/PMCID_XML/{final_data[i]}.xml", "w")
@@ -2685,7 +2689,7 @@ def pmcid_to_microbiome(pmcid_list, email, output_directory = './'):
             # in case the status code is different than 200 or 429
             print('error with request')
             print(f'{r_d["error"]}')
-        time.sleep(1)
+        time.sleep(3)
 
     collected_files = glob.glob(final_output + f'/PMCID_XML/*.xml')
     try:
