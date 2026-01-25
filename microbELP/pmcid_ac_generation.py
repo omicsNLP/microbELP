@@ -34,6 +34,8 @@ def get_request(input_id, http, base_url, headers):
             # check for 200 response and raise exception if not so.
             if r.status_code != 200:
                 print(f'Error {r.status_code} for {base_url}')
+                if r.status_code == 429:
+                    exit()
         
         #now we have a set of multiple exceptions that might occur
         except HTTPError as error:
@@ -2687,9 +2689,9 @@ def pmcid_to_microbiome(pmcid_list, email, output_directory = './'):
             f.close()
         else:
             # in case the status code is different than 200 or 429
-            print('error with request')
+            print('error with request') 
             print(f'{r_d["error"]}')
-        time.sleep(3)
+        time.sleep(5)
 
     collected_files = glob.glob(final_output + f'/PMCID_XML/*.xml')
     try:
