@@ -2691,7 +2691,7 @@ def pmcid_to_microbiome(pmcid_list, email, output_directory = './'):
             # in case the status code is different than 200 or 429
             print('error with request') 
             print(f'{r_d["error"]}')
-        time.sleep(10)
+        time.sleep(3)
 
     collected_files = glob.glob(final_output + f'/PMCID_XML/*.xml')
     try:
