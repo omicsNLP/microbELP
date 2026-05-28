@@ -16,14 +16,14 @@ from datetime import datetime
 import torch
 from transformers import AutoTokenizer, AutoModelForTokenClassification
 
-def microbELP_DL(input_directory, output_dir = './', cpu = False, normalisation = True):
+def microbELP_DL(input_directory, output_directory = './', cpu = False, normalisation = True):
     if type(input_directory) != str:
         print('Parameter "input_directory": Input error, this function only accepts a string directory with BioC files to be annotated with "*_bioc.json", e.g. for "./bioc/*_bioc.json", requires "./bioc" as input.')
         return None
     else:
         pass
-    if type(output_dir) != str:
-        print('Parameter "output_dir": Input error, this function only accepts a string directory to save the annotated files, e.g. for "./bioc_annotated/", the function will generate and save the output in "./bioc_annotated/microbELP_DL_result/".')
+    if type(output_directory) != str:
+        print('Parameter "output_directory": Input error, this function only accepts a string directory to save the annotated files, e.g. for "./bioc_annotated/", the function will generate and save the output in "./bioc_annotated/microbELP_DL_result/".')
         return None
     else:
         pass
@@ -41,10 +41,10 @@ def microbELP_DL(input_directory, output_dir = './', cpu = False, normalisation 
         input_list = glob.glob(input_directory + '*_bioc.json')
     else:
         input_list = glob.glob(input_directory + '/*_bioc.json')
-    if output_dir[-1] == '/':
-        output_directory = output_dir + 'microbELP_DL_result/'
+    if output_directory[-1] == '/':
+        output_directory = output_directory + 'microbELP_DL_result/'
     else:
-        output_directory = output_dir + '/microbELP_DL_result/'
+        output_directory = output_directory + '/microbELP_DL_result/'
     try:
         os.mkdir(output_directory)
     except:
