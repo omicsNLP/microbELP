@@ -634,6 +634,9 @@ doi = {10.3389/fdgth.2022.788124}
 
 ## 🏷️ Version History
 
+### Version 1.0.2
+-> Added LLM prompt.
+
 ### Version 1.0.1
 -> Linked to Zenodo.
 
