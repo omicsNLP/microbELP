@@ -36,6 +36,7 @@ The system was developed to support large-scale microbiome curation and downstre
 - [🌳 Visualisation Module](#-visualisation-module)
   - [🌲 Single Phylogenetic Tree](#-single-phylogenetic-tree)
   - [🌴 Comparative Phylogenetic Tree](#-comparative-phylogenetic-tree)
+- [🧾 LLM NER prompt](#-llm-ner-prompt)
 - [🐧 Linux / 🍎 macOS / 💠 Cygwin (Linux-like on Windows)](#-linux---macos---cygwin-linux-like-on-windows)
   - [🧰 Main pipeline - non–DL (CPU only)](#-main-pipeline---nondl-cpu-only)
 - [🌍 Ecosystem](#-ecosystem)
@@ -458,6 +459,12 @@ This function generates four comparative images:
 2. Phylogenetic tree and counts for the `front_input_path`.
 3. Tree of `front_input_path` with q-values compared to `back_input_path`.
 4. Overlay of `front_input_path` on top of `back_input_path`, showing comparative abundance.
+
+---
+
+## 🧾 LLM NER prompt
+
+You can find the prompt used for both Llama 3.1:8b and gptoss:20b here: [![Open in GitHub](https://img.shields.io/badge/GitHub-Open_in_GitHub-181717?logo=github)](https://github.com/omicsNLP/example_notebooks/blob/main/microbELP/LLM_prompt.txt)
 
 ---
 
