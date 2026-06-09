@@ -5,6 +5,7 @@
 [![DOI:10.5281/zenodo.17288827](http://img.shields.io/badge/DOI-10.5281/zenodo.17288827-3382C4.svg)](https://zenodo.org/records/17288827)
 [![Codabench](http://img.shields.io/badge/Codabench-microbELP_benchmark_NER-2C3F4C.svg)](https://www.codabench.org/competitions/10913/)
 [![Codabench](http://img.shields.io/badge/Codabench-microbELP_benchmark_NER_EL-2C3F4C.svg)](https://www.codabench.org/competitions/11581)
+[![DOI](https://zenodo.org/badge/880903613.svg)](https://doi.org/10.5281/zenodo.20613467)
 [![CoDiet](https://img.shields.io/badge/used_by:_%F0%9F%8D%8E_CoDiet-5AA764)](https://www.codiet.eu)
 
 # 🦠 microbELP
@@ -626,6 +627,9 @@ doi = {10.3389/fdgth.2022.788124}
 
 ## 🏷️ Version History
 
-### Version 0.2.0
+### Version 1.0.1
+-> Linked to Zenodo.
+
+### Version 1.0.0
 -> First public release.
 
