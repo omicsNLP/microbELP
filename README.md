@@ -1,4 +1,5 @@
-[![DOI:10.1101/2021.01.08.425887](http://img.shields.io/badge/DOI-10.1101/2025.08.29.671515-BE2536.svg)](https://doi.org/10.1101/2025.08.29.671515)
+[![DOI:10.1101/2021.01.08.425887](http://img.shields.io/badge/preprint_DOI-10.1101/2025.08.29.671515-BE2536.svg)](https://doi.org/10.1101/2025.08.29.671515)
+[![DOI:10.1093/bioinformatics/btag418](http://img.shields.io/badge/publication_DOI-10.1093/bioinformatics/btag418-0887BA.svg)](https://doi.org/10.1093/bioinformatics/btag418)
 [![DOI:10.5281/zenodo.17305411](http://img.shields.io/badge/DOI-10.5281/zenodo.17305411-3382C4.svg)](https://zenodo.org/records/17305411)
 [![Hugging Face Models](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-microbELP_NER-FFD21E)](https://huggingface.co/omicsNLP/microbELP_NER)
 [![Hugging Face Models](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-microbELP_NEN-FFD21E)](https://huggingface.co/omicsNLP/microbELP_NEN)
