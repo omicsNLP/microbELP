@@ -2716,7 +2716,7 @@ def pmcid_to_microbiome(pmcid_list, email, output_directory = './'):
             try:
                 my_dict = convert_xml_to_json(final_bioc[i])
                 with open(
-                    final_output + f"/bioc/{final_bioc[i].split('/')[-1].split('.')[0]}_bioc.json",
+                    final_output + f"/bioc/{os.path.splitext(os.path.basename(final_bioc[i]))[0]}_bioc.json",
                     "w",
                     encoding="utf-8",
                 ) as fp:
